@@ -2,6 +2,8 @@
   <h1 class="white-l">Nuevo Lote</h1>
   <form action="/tpfinal-basededatos/controladores/lotes.php" method="POST">
     <div class="w3-section">
+      <label class="white-l" for="numero"><strong>Número de Lote:</strong></label>
+      <input class="w3-input w3-margin-bottom" type="number" name="numero" id="numero">
       <label class="white-l" for="producto"><strong>Producto:</strong></label>
       <select class="w3-select w3-border w3-margin-bottom" name="producto" id="producto" required>
         <?php foreach (Producto::getProductos() as $producto): ?>
