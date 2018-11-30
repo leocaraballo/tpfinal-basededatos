@@ -25,7 +25,7 @@
 
                 $resultset = $statement->fetch();
                 if ($resultset) {
-                    return new Empresa_Proveedora($rne,$resultset['CUIT'], $resultset['Nombre'], $resultset['Direccion'], 
+                    return new EmpresaProveedora($rne,$resultset['CUIT'], $resultset['Nombre'], $resultset['Direccion'], 
                             $resultset['Telefono'], $resultset['Email']);
                 }else{
                     return null;
@@ -34,7 +34,7 @@
         }
 
         public static function insertarEmpresa_Proveedora($con, $rne, $cuit, $nombre, $direccion, $telefono, $email) {
-        if (Empresa_Proveedora::retornarEmpresa_Proveedora($con, $rne) == null) {
+        if (EmpresaProveedora::retornarEmpresa_Proveedora($con, $rne) == null) {
            if (isset($con)) {
                 $qry = 'INSERT INTO empresa_proveedora(`RNE`, `CUIT`, `Nombre`, `Direccion`, `Telefono`, `Email`) '
                         . 'VALUES (:rne, :cuit, :nombre, :direccion, :telefono, :email)';
@@ -51,7 +51,7 @@
     }
 
         function Modificar($RNE, $NuevoRNE, $CUIT, $Nombre, $Direccion, $Telefono, $Email){
-            require($_SERVER['DOCUMENT_ROOT'].'/tpfinal/modelos/Conexion.inc.php');
+            require($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/modelos/Conexion.inc.php');
             Conexion::openConnection();
 
             $Conexion = Conexion::getConnection();
@@ -80,7 +80,7 @@
         }
 
         function Borrar($RNE){
-            require($_SERVER['DOCUMENT_ROOT'].'/tpfinal/modelos/Conexion.inc.php');
+            require($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/modelos/Conexion.inc.php');
             Conexion::openConnection();
 
             $Conexion = Conexion::getConnection();
