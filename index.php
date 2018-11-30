@@ -38,7 +38,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 </div>
 
 <!-- Header -->
-<header class="w3-container w3-light-blue w3-center" style="padding:128px 16px">
+<header class="w3-container w3-center" style="padding:128px 16px;  background:url(img/almacen.jpg) no-repeat;">
 	
 		<h1  class="w3-margin w3-jumbo"><strong>SUPERCARO</strong></h1> 
 	<!-- <p class="w3-xlarge">Template by w3.css</p> -->
