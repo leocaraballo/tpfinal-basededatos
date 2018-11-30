@@ -70,7 +70,7 @@
         }        
     }
 
-        public static function insertarEmpresa_Proveedora($con, $rne, $cuit, $nombre, $direccion, $telefono, $email) {
+        /*public static function insertarEmpresa_Proveedora($con, $rne, $cuit, $nombre, $direccion, $telefono, $email) {
         if (EmpresaProveedora::retornarEmpresa_Proveedora($con, $rne) == null) {
            if (isset($con)) {
                 $qry = 'INSERT INTO empresa_proveedora(`RNE`, `CUIT`, `Nombre`, `Direccion`, `Telefono`, `Email`) '
@@ -85,7 +85,7 @@
                 $statement->execute();
             } 
         }        
-    }
+    }*/
     
     public static function modificarEmpresa_Proveedora($con, $rne, $cuit, $nombre, $direccion, $telefono, $email) {
         if (isset($con)) {
