@@ -7,7 +7,7 @@
       <label class="white-l" for="producto"><strong>Producto:</strong></label>
       <select class="w3-select w3-border w3-margin-bottom" name="producto" id="producto" required>
         <?php foreach (Producto::getProductos() as $producto): ?>
-        <option value="<?=$producto[" Codigo"]?>">
+        <option value="<?=$producto["Codigo"]?>">
           <?=$producto["Nombre"]?>
         </option>
         <?php endforeach; ?>
