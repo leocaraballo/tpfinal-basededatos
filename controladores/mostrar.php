@@ -1,7 +1,7 @@
 <?php
   function mostrar($ruta) {
-    require('vistas/templates/header.php');
+    require($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/vistas/templates/header.php');
     require($ruta);
-    require('vistas/templates/footer.php');
+    require($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/vistas/templates/footer.php');
   }
 ?>

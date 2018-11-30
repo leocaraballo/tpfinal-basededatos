@@ -44,8 +44,8 @@
     font-size: 200px
   }
 
-  body {
-    background-image: url("img/almacen.jpg");
+  main {
+    background-image: url("/tpfinal-basededatos/img/almacen.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -64,10 +64,10 @@
       <div class="w3-bar w3-blue w3-card w3-left-align w3-large">
         <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red"
           href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-        <a class="w3-bar-item w3-button w3-padding-large w3-white">Inicio</a>
+        <a href="/tpfinal-basededatos/" class="w3-bar-item w3-button w3-padding-large w3-white">Inicio</a>
         <a href="supercaro/producto" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Producto</a>
         <a href="supercaro/Conozcanos/" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Inventario</a>
-        <a href="controladores/lotes.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Lote</a>
+        <a href="/tpfinal-basededatos/controladores/lotes.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Lote</a>
         <a onclick="document.getElementById('id02').style.display='block'" href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Verificaciones</a>
         <a onclick="document.getElementById('id02').style.display='block'" href="" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Empresas Proveedoras</a>
       </div>
