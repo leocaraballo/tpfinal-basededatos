@@ -48,7 +48,11 @@
 </div>
 
 <!-- Header -->
+<<<<<<< HEAD
 <header class="w3-container w3-center" style="padding:128px 16px;">
+=======
+<header class="w3-container w3-center" style="padding:128px 16px;  background:url(img/almacen.jpg) no-repeat center center fixed; background-size: cover;">
+>>>>>>> 9bbdd481fe0fb8187d845a58d06d9a40980680c6
 	
 		<h1 class="w3-margin w3-jumbo titulo-grande"><strong>SUPERCARO</strong></h1> 
 	<!-- <p class="w3-xlarge">Template by w3.css</p> -->
