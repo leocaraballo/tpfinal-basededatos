@@ -67,7 +67,7 @@
         <a class="w3-bar-item w3-button w3-padding-large w3-white">Inicio</a>
         <a href="supercaro/producto" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Producto</a>
         <a href="supercaro/Conozcanos/" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Inventario</a>
-        <a href="supercaro/App" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Lote</a>
+        <a href="controladores/lotes.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Lote</a>
         <a onclick="document.getElementById('id02').style.display='block'" href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Verificaciones</a>
         <a onclick="document.getElementById('id02').style.display='block'" href="" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Empresas Proveedoras</a>
       </div>
@@ -76,7 +76,7 @@
       <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
         <a class="w3-bar-item w3-button w3-padding-large w3-white">Inicio</a>
         <a href="#" class="w3-bar-item w3-button w3-padding-large">Producto</a>
-        <a href="/supercaro/Conozcanos" class="w3-bar-item w3-button w3-padding-large">Lote</a>
+        <a href="controladores/lotes.php" class="w3-bar-item w3-button w3-padding-large">Lote</a>
         <a onclick="document.getElementById('id02').style.display='block'" href="#" class="w3-bar-item w3-button w3-padding-large">Verificaciones</a>
       </div>
     </div>
