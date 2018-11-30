@@ -55,6 +55,11 @@
     color: white;
     text-shadow: 4px 4px 8px #000000;
   }
+
+  .white-l {
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
+  }
 </style>
 
 <body>

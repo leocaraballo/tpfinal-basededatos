@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS Pertenece_A(
 );
 
 CREATE TABLE if NOT EXISTS Lote(
-	Numero int PRIMARY KEY,
+	Numero int PRIMARY KEY AUTO_INCREMENT,
 	Producto_Codigo_FK int,
     Fecha_Emision date,
     Fecha_Entrada date,
