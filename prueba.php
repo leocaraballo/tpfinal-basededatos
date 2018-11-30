@@ -38,8 +38,9 @@
   */
   // CODIGO PARA RESETEAR LA BASE DE DATOS
   // Pasa el archivo sql a string
-  $sql = "INSERT INTO Marco_Regulatorio(Numero, Duracion_Dias, Temperatura_Minima, Temperatura_Maxima)
-          VALUES (401, 15, 5, 27), (205, 24, -10, 20), (66, 10, 10, 20)";
+  $sql = "INSERT INTO Tipo_Verificacion(Nombre, Tipo)
+          VALUES ('Trazabilidad', 'Cumplimiento'), ('Presencia Gluten', 'Cumplimiento'), 
+                 ('Contenido Alcohólico', 'Medida'), ('Contenido de Sodio', 'Medida');";
   
   require($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/modelos/Conexion.inc.php');
   Conexion::openConnection();

@@ -27,34 +27,18 @@
             return $this;
         } 
 
-        function Crear($Numero, $DuracionDias, $TemperaturaMinima, $TemperaturaMaxima){
-            require($_SERVER['DOCUMENT_ROOT'].'/tpfinal/modelos/Conexion.inc.php');
-            Conexion::openConnection();
+        public static function crear($data){
+          $sql = "INSERT INTO Marco_Regulatorio(Numero, Duracion_Dias, Temperatura_Minima, Temperatura_Maxima)
+              VALUES (:Numero, :Duracion_Dias, :Temperatura_Minima, :Temperatura_Maxima)";
 
-            $Conexion = Conexion::getConnection();
-
-            $Operacion = (" INSERT INTO marco_regulatorio
-                            (`Numero`,
-                            `Duracion_Dias`,
-                            `Temperatura_Minima`,
-                            `Temperatura_Maxima`)
-                            VALUES
-                            ($Numero,
-                            $DuracionDias,
-                            $TemperaturaMinima,
-                            $TemperaturaMaxima);");
-
-            if($Conexion->query($Operacion)){
-                $this->Numero = $Numero;
-                $this->DuracionDias = $DuracionDias;
-                $this->TemperaturaMinima = $TemperaturaMinima;
-                $this->TemperaturaMaxima = $TemperaturaMaxima;
-
-                return $this;
-            }
-            else{
-                return null;
-            }
+          require($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/modelos/Conexion.inc.php');
+          Conexion::openConnection();
+          $db = Conexion::getConnection();
+          if ($db != null) {
+            $sentence = $db->prepare($sql);
+            $sentence->execute($data);
+            Conexion::closeConnection();
+          }
         }
 
         function Modificar($Numero, $NuevoNumero, $DuracionDias, $TemperaturaMinima, $TemperaturaMaxima){
