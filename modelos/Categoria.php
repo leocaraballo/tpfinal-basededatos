@@ -39,7 +39,7 @@
         } 
 
          public static function Crear($Nombre){
-            require_once($_SERVER['DOCUMENT_ROOT'].'/tpfinal/modelos/Conexion.inc.php');
+            require_once('Conexion.inc.php');
             Conexion::openConnection();
 
             $Conexion = Conexion::getConnection();
@@ -50,9 +50,9 @@
                             ('$Nombre');");
 
             if($Conexion->query($Operacion)){
-                $this->Nombre = $Nombre;
+               
 
-                return $this;
+                return true;
             }
             else{
                 return null;
