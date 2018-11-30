@@ -1,71 +1,54 @@
 <?php
     class EmpresaProveedora{
-        public $RNE;
-        public $CUIT;
-        public $Nombre;
-        public $Direccion;
-        public $Telefono;
-        public $Email;
+        public $rne;
+        public $cuit;
+        public $nombre;
+        public $direccion;
+        public $telefono;
+        public $email;
 
-        function __construct() {}
+        function __construct($rne, $cuit, $nombre, $direccion, $telefono, $email) {
+        $this->rne = $rne;
+        $this->cuit = $cuit;
+        $this->nombre = $nombre;
+        $this->direccion = $direccion;
+        $this->telefono = $telefono;
+        $this->email = $email;
+        }
 
-        function Consultar($RNE){
-            require($_SERVER['DOCUMENT_ROOT'].'/tpfinal/modelos/Conexion.inc.php');
-            Conexion::openConnection();
+        public static function retornarEmpresa_Proveedora($con, $rne) {
+            if (isset($con)) {
+                $qry = 'SELECT CUIT, Nombre, Direccion, Telefono, Email FROM empresa_proveedora WHERE RNE = :rne';
+                $statement = $con->prepare($qry);
+                $statement->bindParam(':rne',$rne, PDO::PARAM_INT);
+                $statement->execute();
 
-            $Conexion = Conexion::getConnection();
-
-            $Operacion = ("SELECT * FROM empresa_proveedora WHERE RNE = $RNE");
-
-            $Resultados = $Conexion->query($Operacion);
-
-            foreach($Resultados as $Item){
-                $this->RNE = $Item["RNE"];
-                $this->CUIT = $Item["CUIT"];
-                $this->Nombre = $Item["Nombre"];
-                $this->Direccion = $Item["Direccion"];
-                $this->Telefono = $Item["Telefono"];
-                $this->Email = $Item["Email"];
-            }
-
-            return $this;
-        } 
-
-        function Crear($RNE, $CUIT, $Nombre, $Direccion, $Telefono, $Email){
-            require($_SERVER['DOCUMENT_ROOT'].'/tpfinal/modelos/Conexion.inc.php');
-            Conexion::openConnection();
-
-            $Conexion = Conexion::getConnection();
-
-            $Operacion = (" INSERT INTO empresa_proveedora
-                            (`RNE`,
-                            `CUIT`,
-                            `Nombre`,
-                            `Direccion`,
-                            `Telefono`,
-                            `Email`)
-                            VALUES
-                            ($RNE,
-                            $CUIT,
-                            '$Nombre',
-                            '$Direccion',
-                            $Telefono,
-                            '$Email');");
-
-            if($Conexion->query($Operacion)){
-                $this->RNE = $RNE;
-                $this->CUIT = $CUIT;
-                $this->Nombre = $Nombre;
-                $this->Direccion = $Direccion;
-                $this->Telefono = $Telefono;
-                $this->Email = $Email;
-
-                return $this;
-            }
-            else{
-                return null;
+                $resultset = $statement->fetch();
+                if ($resultset) {
+                    return new Empresa_Proveedora($rne,$resultset['CUIT'], $resultset['Nombre'], $resultset['Direccion'], 
+                            $resultset['Telefono'], $resultset['Email']);
+                }else{
+                    return null;
+                }
             }
         }
+
+        public static function insertarEmpresa_Proveedora($con, $rne, $cuit, $nombre, $direccion, $telefono, $email) {
+        if (Empresa_Proveedora::retornarEmpresa_Proveedora($con, $rne) == null) {
+           if (isset($con)) {
+                $qry = 'INSERT INTO empresa_proveedora(`RNE`, `CUIT`, `Nombre`, `Direccion`, `Telefono`, `Email`) '
+                        . 'VALUES (:rne, :cuit, :nombre, :direccion, :telefono, :email)';
+                $statement = $con->prepare($qry);
+                $statement->bindParam(':rne',$rne, PDO::PARAM_INT);
+                $statement->bindParam(':cuit',$cuit, PDO::PARAM_INT);
+                $statement->bindParam(':nombre',$nombre, PDO::PARAM_STR);
+                $statement->bindParam(':direccion',$direccion, PDO::PARAM_STR);
+                $statement->bindParam(':telefono',$telefono, PDO::PARAM_LOB);
+                $statement->bindParam(':email',$email, PDO::PARAM_STR);
+                $statement->execute();
+            } 
+        }        
+    }
 
         function Modificar($RNE, $NuevoRNE, $CUIT, $Nombre, $Direccion, $Telefono, $Email){
             require($_SERVER['DOCUMENT_ROOT'].'/tpfinal/modelos/Conexion.inc.php');
