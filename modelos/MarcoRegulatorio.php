@@ -95,6 +95,18 @@
           Conexion::closeConnection();
           return $ret;
         }
+        
+        public static function addTiene($data) {
+          $sql = "INSERT INTO Tiene(Marco_Regulatorio_Numero_FK, Tipo_Verificacion_Nombre_FK)
+              VALUES ".$data;
 
+          require_once($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/modelos/Conexion.inc.php');
+          Conexion::openConnection();
+          $db = Conexion::getConnection();
+          if ($db != null) {
+            $sentence = $db->exec($sql);
+            Conexion::closeConnection();
+          }
+        }
     }
 ?>
