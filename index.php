@@ -10,9 +10,19 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 		#Cursiva {font-style: italic}
-body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
-.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
-.fa-anchor,.fa-coffee {font-size:200px}
+    body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+    .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+    .fa-anchor,.fa-coffee {font-size:200px}
+    body {
+      background-image: url("img/almacen.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position:center;
+    }
+    .titulo-grande {
+      color: white;
+      text-shadow: 4px 4px 8px #000000;
+    }
 </style>
 <body>
 
@@ -38,9 +48,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 </div>
 
 <!-- Header -->
-<header class="w3-container w3-center" style="padding:128px 16px;  background:url(img/almacen.jpg) no-repeat center center fixed; background-size: cover;">
+<header class="w3-container w3-center" style="padding:128px 16px;">
 	
-		<h1  class="w3-margin w3-jumbo"><strong>SUPERCARO</strong></h1> 
+		<h1 class="w3-margin w3-jumbo titulo-grande"><strong>SUPERCARO</strong></h1> 
 	<!-- <p class="w3-xlarge">Template by w3.css</p> -->
 	<button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Iniciar sesion</button>
 </header>
