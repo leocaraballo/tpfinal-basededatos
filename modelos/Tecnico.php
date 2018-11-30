@@ -9,6 +9,31 @@
 
         function __construct() {}
 
+        public static function RetornaTodosLosTecnicos(){
+                require_once('Conexion.inc.php');
+                Conexion::openConnection();
+    
+                $Conexion = Conexion::getConnection();
+    
+                $Operacion = ("SELECT * FROM tecnico");
+    
+                $Resultados = $Conexion->query($Operacion);
+
+                $retorno;
+                foreach($Resultados as $Item){
+                    $tecnics = new Tecnico();
+                    $tecnics->DNI = $Item["Dni"];
+                    $tecnics->Matricula = $Item["Matricula"];
+                    $tecnics->Nombre = $Item["Nombre"];
+                    $tecnics->Apellido = $Item["Apellido"];
+                    $tecnics->Telefono = $Item["Telefono"];
+                    $tecnics->Direccion = $Item["Direccion"];
+                    $retorno[] = $tecnics;
+                }
+    
+                return $retorno;
+            }
+
         function Consultar($DNI){
             require_once($_SERVER['DOCUMENT_ROOT'].'/tpfinal/modelos/Conexion.inc.php');
             Conexion::openConnection();
@@ -31,8 +56,8 @@
             return $this;
         } 
 
-        function Crear($DNI, $Matricula, $Nombre, $Apellido, $Telefono, $Direccion){
-            require_once($_SERVER['DOCUMENT_ROOT'].'/tpfinal/modelos/Conexion.inc.php');
+        public static function Crear($DNI, $Matricula, $Nombre, $Apellido, $Telefono, $Direccion){
+            require_once('Conexion.inc.php');
             Conexion::openConnection();
 
             $Conexion = Conexion::getConnection();
@@ -43,14 +68,7 @@
                             ($DNI, $Matricula, '$Nombre', '$Apellido', $Telefono, '$Direccion');");
 
             if($Conexion->query($Operacion)){
-                $this->DNI = $DNI;
-                $this->Matricula = $Matricula;
-                $this->Nombre = $Nombre;
-                $this->Apellido = $Apellido;
-                $this->Telefono = $Telefono;
-                $this->Direccion = $Direccion;
-
-                return $this;
+                return true;
             }
             else{
                 return null;

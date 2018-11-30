@@ -88,6 +88,7 @@
         <a onclick="document.getElementById('id02').style.display='block'" href="/tpfinal-basededatos/" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Verificaciones</a>
         <a onclick="document.getElementById('id02').style.display='block'" href="/tpfinal-basededatos/controladores/empresa_proveedora.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Empresas Proveedoras</a>
         <a onclick="document.getElementById('id02').style.display='block'" href="/tpfinal-basededatos/controladores/categoria.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Categoria</a>
+        <a onclick="document.getElementById('id02').style.display='block'" href="/tpfinal-basededatos/controladores/tecnico.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Tecnico</a>
       </div>
 
       <!-- Navbar on small screens -->
