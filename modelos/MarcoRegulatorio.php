@@ -8,7 +8,7 @@
         function __construct() {}
 
         function Consultar($Numero){
-            require($_SERVER['DOCUMENT_ROOT'].'/tpfinal/modelos/Conexion.inc.php');
+            require_once($_SERVER['DOCUMENT_ROOT'].'/tpfinal/modelos/Conexion.inc.php');
             Conexion::openConnection();
 
             $Conexion = Conexion::getConnection();
@@ -31,7 +31,7 @@
           $sql = "INSERT INTO Marco_Regulatorio(Numero, Duracion_Dias, Temperatura_Minima, Temperatura_Maxima)
               VALUES (:Numero, :Duracion_Dias, :Temperatura_Minima, :Temperatura_Maxima)";
 
-          require($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/modelos/Conexion.inc.php');
+          require_once($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/modelos/Conexion.inc.php');
           Conexion::openConnection();
           $db = Conexion::getConnection();
           if ($db != null) {
@@ -42,7 +42,7 @@
         }
 
         function Modificar($Numero, $NuevoNumero, $DuracionDias, $TemperaturaMinima, $TemperaturaMaxima){
-            require($_SERVER['DOCUMENT_ROOT'].'/tpfinal/modelos/Conexion.inc.php');
+            require_once($_SERVER['DOCUMENT_ROOT'].'/tpfinal/modelos/Conexion.inc.php');
             Conexion::openConnection();
 
             $Conexion = Conexion::getConnection();
@@ -67,7 +67,7 @@
         }
 
         function Borrar($Numero){
-            require($_SERVER['DOCUMENT_ROOT'].'/tpfinal/modelos/Conexion.inc.php');
+            require_once($_SERVER['DOCUMENT_ROOT'].'/tpfinal/modelos/Conexion.inc.php');
             Conexion::openConnection();
 
             $Conexion = Conexion::getConnection();

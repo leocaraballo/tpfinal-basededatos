@@ -85,7 +85,7 @@
     }
 
         function Borrar($RNE){
-            require($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/modelos/Conexion.inc.php');
+            require_once($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/modelos/Conexion.inc.php');
             Conexion::openConnection();
 
             $Conexion = Conexion::getConnection();

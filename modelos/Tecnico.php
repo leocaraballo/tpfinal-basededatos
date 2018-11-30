@@ -10,7 +10,7 @@
         function __construct() {}
 
         function Consultar($DNI){
-            require($_SERVER['DOCUMENT_ROOT'].'/tpfinal/modelos/Conexion.inc.php');
+            require_once($_SERVER['DOCUMENT_ROOT'].'/tpfinal/modelos/Conexion.inc.php');
             Conexion::openConnection();
 
             $Conexion = Conexion::getConnection();
@@ -32,7 +32,7 @@
         } 
 
         function Crear($DNI, $Matricula, $Nombre, $Apellido, $Telefono, $Direccion){
-            require($_SERVER['DOCUMENT_ROOT'].'/tpfinal/modelos/Conexion.inc.php');
+            require_once($_SERVER['DOCUMENT_ROOT'].'/tpfinal/modelos/Conexion.inc.php');
             Conexion::openConnection();
 
             $Conexion = Conexion::getConnection();
@@ -58,7 +58,7 @@
         }
 
         function Modificar($DNI, $NuevoDNI, $Matricula, $Nombre, $Apellido, $Telefono, $Direccion){
-            require($_SERVER['DOCUMENT_ROOT'].'/tpfinal/modelos/Conexion.inc.php');
+            require_once($_SERVER['DOCUMENT_ROOT'].'/tpfinal/modelos/Conexion.inc.php');
             Conexion::openConnection();
 
             $Conexion = Conexion::getConnection();
@@ -87,7 +87,7 @@
         }
 
         function Borrar($DNI){
-            require($_SERVER['DOCUMENT_ROOT'].'/tpfinal/modelos/Conexion.inc.php');
+            require_once($_SERVER['DOCUMENT_ROOT'].'/tpfinal/modelos/Conexion.inc.php');
             Conexion::openConnection();
 
             $Conexion = Conexion::getConnection();

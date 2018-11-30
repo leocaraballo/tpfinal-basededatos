@@ -83,5 +83,19 @@
                 return false;
             }
         }
+
+        public static function getTipoVerificaciones() {
+          require_once($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/modelos/Conexion.inc.php');
+          Conexion::openConnection();
+          $db = Conexion::getConnection();
+          $ret = null;
+          if ($db != null) {
+            $sql = "SELECT Nombre, Tipo
+                    FROM Tipo_Verificacion";
+            $ret = $db->query($sql);
+          }
+          Conexion::closeConnection();
+          return $ret;
+        }
     }
 ?>

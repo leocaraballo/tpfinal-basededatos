@@ -9,8 +9,9 @@
     ];
     require_once($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/modelos/MarcoRegulatorio.php');
     MarcoRegulatorio::crear($data);
-    require_once($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/controladores/mensaje.php');
-    mensaje("Se ha agregado un Marco Regulatorio exitosamente!");
+    session_start();
+    $_SESSION["marco_regulatorio_numero"] = $_REQUEST["numero"];
+    require_once($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/controladores/tiene.php');
   } else {
     mostrar($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/vistas/marco_regulatorio.php');
   }

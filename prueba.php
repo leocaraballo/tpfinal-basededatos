@@ -17,17 +17,16 @@
     Conexion::closeConnection();
   }
   */
-  /*
-  require('modelos/Conexion.inc.php');
+  require_once('modelos/Conexion.inc.php');
   Conexion::openConnection();
   $db = Conexion::getConnection();
 
   if ($db != null) {
-    $sql = "SELECT nombre
-            FROM categoria";
+    $sql = "SELECT *
+            FROM Marco_Regulatorio";
     try {
       foreach ($db->query($sql) as $row) {
-        echo $row["nombre"]."<br>";
+        echo $row["Numero"]."<br>";
       }
       echo "Todo OK";
     } catch (PDOException $e) {
@@ -35,9 +34,7 @@
     }
     Conexion::closeConnection();
   }
-  */
-  // CODIGO PARA RESETEAR LA BASE DE DATOS
-  // Pasa el archivo sql a string
+  /*
   $sql = "INSERT INTO Tipo_Verificacion(Nombre, Tipo)
           VALUES ('Trazabilidad', 'Cumplimiento'), ('Presencia Gluten', 'Cumplimiento'), 
                  ('Contenido Alcohólico', 'Medida'), ('Contenido de Sodio', 'Medida');";
@@ -53,4 +50,5 @@
     }
     Conexion::closeConnection();
   }
+  */
 ?>

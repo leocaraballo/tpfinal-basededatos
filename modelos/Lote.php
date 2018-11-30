@@ -4,7 +4,7 @@
       $sql = "INSERT INTO Lote(Numero, Producto_Codigo_FK, Fecha_Emision, Fecha_Entrada, Fecha_Vcto, Cantidad)
               VALUES (:Numero, :Producto_Codigo_FK, :Fecha_Emision, :Fecha_Entrada, :Fecha_Vcto, :Cantidad)";
 
-      require($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/modelos/Conexion.inc.php');
+      require_once($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/modelos/Conexion.inc.php');
       Conexion::openConnection();
       $db = Conexion::getConnection();
       if ($db != null) {

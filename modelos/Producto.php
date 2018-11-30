@@ -13,7 +13,7 @@
       
 
         public static function insertarProducto($Codigo, $Empresa_Proveedora_RNE_FK, $Marco_Regulatorio_Numero_FK, $RNPA, $Nombre, $Marca,$Descripcion){
-          require($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/modelos/Conexion.inc.php');
+          require_once($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/modelos/Conexion.inc.php');
           Conexion::openConnection();
           $Conexion = Conexion::getConnection();
 
@@ -45,7 +45,7 @@
         }
 
         function Modificar($Codigo, $Empresa_Proveedora_RNE_FK, $Marco_Regulatorio_Numero_FK, $RNPA, $Nombre, $Marca,$Descripcion){
-            require($_SERVER['DOCUMENT_ROOT'].'/tpfinaltpfinal-basededatos/modelos/Conexion.inc.php');
+            require_once($_SERVER['DOCUMENT_ROOT'].'/tpfinaltpfinal-basededatos/modelos/Conexion.inc.php');
             Conexion::openConnection();
 
             $Conexion = Conexion::getConnection();
@@ -75,7 +75,7 @@
         }
 
      public static function getProductos() {
-      require($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/modelos/Conexion.inc.php');
+      require_once($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/modelos/Conexion.inc.php');
       Conexion::openConnection();
       $db = Conexion::getConnection();
       $ret = null;

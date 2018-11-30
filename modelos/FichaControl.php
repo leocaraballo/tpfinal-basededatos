@@ -11,7 +11,7 @@
         function __construct() {}
 
         function Consultar($Numero){
-            require($_SERVER['DOCUMENT_ROOT'].'/tpfinal/modelos/Conexion.inc.php');
+            require_once($_SERVER['DOCUMENT_ROOT'].'/tpfinal/modelos/Conexion.inc.php');
             Conexion::openConnection();
 
             $Conexion = Conexion::getConnection();
@@ -34,7 +34,7 @@
         } 
 
         function Crear($Numero, $Tecnico_Dni_FK, $Lote_Numero_FK, $Semana, $Año, $Estado_Lote, $Observaciones_Generales){
-            require($_SERVER['DOCUMENT_ROOT'].'/tpfinal/modelos/Conexion.inc.php');
+            require_once($_SERVER['DOCUMENT_ROOT'].'/tpfinal/modelos/Conexion.inc.php');
             Conexion::openConnection();
 
             $Conexion = Conexion::getConnection();
@@ -73,7 +73,7 @@
         }
 
         function Modificar($Numero, $NuevoNumero, $Tecnico_Dni_FK, $Lote_Numero_FK, $Semana, $Año, $Estado_Lote, $Observaciones_Generales){
-            require($_SERVER['DOCUMENT_ROOT'].'/tpfinal/modelos/Conexion.inc.php');
+            require_once($_SERVER['DOCUMENT_ROOT'].'/tpfinal/modelos/Conexion.inc.php');
             Conexion::openConnection();
 
             $Conexion = Conexion::getConnection();
@@ -104,7 +104,7 @@
         }
 
         function Borrar($Numero){
-            require($_SERVER['DOCUMENT_ROOT'].'/tpfinal/modelos/Conexion.inc.php');
+            require_once($_SERVER['DOCUMENT_ROOT'].'/tpfinal/modelos/Conexion.inc.php');
             Conexion::openConnection();
 
             $Conexion = Conexion::getConnection();
