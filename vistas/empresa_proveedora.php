@@ -20,36 +20,38 @@ if (isset($_GET['enviar'])) {
 }
 $empresas = EmpresaProveedora::retornarTodasEmpresa_Proveedora(Conexion::getConnection());
 ?>
-<main class="w3-container w3-center w3-centered w3-card-4" style="padding:128px 16px;">
-    <table class="w3-table w3-striped w3-table-all">
-        <tr>
-          <th>RNE</th>
-          <th>CUIT</th>
-          <th>Nombre</th>
-          <th>Direccion</th>
-          <th>Telefono</th>
-          <th>Email</th>
-          <th></th>
-        </tr>
-        <?php
-        foreach ($empresas as $value) {
-            echo    '<tr>'.
-                    '<td>'. $value->rne .'</td>' .
-                    '<td>'. $value->cuit .'</td>' .
-                    '<td>'. $value->nombre .'</td>' .
-                    '<td>'. $value->direccion .'</td>' .
-                    '<td>'. $value->telefono .'</td>' .
-                    '<td>'. $value->email .'</td>'.
-                    '<td><a href="empresa_proveedora.php
-                            ?rne=' . $value->rne . '&cuit=' . $value->cuit . '&nombre=' . $value->nombre . 
-                            '&direccion=' . $value->direccion . '&telefono=' . $value->telefono . '&email=' . $value->email . 
-                            '&accion=M">Modificar</a></td>'.
-                    '</tr>';
-        }
-        ?>
-    </table>
+<header class="w3-container w3-center w3-centered w3-card-4" style="padding:128px 16px;">
+  <table class="w3-table w3-striped w3-table-all">
+      <tr>
+        <th>RNE</th>
+        <th>CUIT</th>
+        <th>Nombre</th>
+        <th>Direccion</th>
+        <th>Telefono</th>
+        <th>Email</th>
+        <th></th>
+      </tr>
+      <?php
+      foreach ($empresas as $value) {
+          echo    '<tr>'.
+                  '<td>'. $value->rne .'</td>' .
+                  '<td>'. $value->cuit .'</td>' .
+                  '<td>'. $value->nombre .'</td>' .
+                  '<td>'. $value->direccion .'</td>' .
+                  '<td>'. $value->telefono .'</td>' .
+                  '<td>'. $value->email .'</td>'.
+                  '<td><a href="empresa_proveedora.php
+                          ?rne=' . $value->rne . '&cuit=' . $value->cuit . '&nombre=' . $value->nombre . 
+                          '&direccion=' . $value->direccion . '&telefono=' . $value->telefono . '&email=' . $value->email . 
+                          '&accion=M">Modificar</a></td>'.
+                  '</tr>';
+      }
+      ?>
+  </table>
+</header>
+  <br>
     <br>
-    <br>
+    <div class="w3-container w3-light-grey">
     <form class="w3-container" style="text-align:left;" action="empresa_proveedora.php">
           <div class="w3-section">
             <?php
@@ -111,5 +113,5 @@ $empresas = EmpresaProveedora::retornarTodasEmpresa_Proveedora(Conexion::getConn
             <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit" name="enviar">Agregar/Modificar Empresa</button>
           </div>
   </form>
-    
+  </div>
 </main>
