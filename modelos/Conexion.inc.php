@@ -20,7 +20,8 @@ class Conexion{
 			try{
 				$dsn = 'mysql:host=' . HOST . ';dbname=' . DBNAME;
 				self::$con = new PDO($dsn,USER,PASSWORD);
-				self::$con->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+        self::$con->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+        self::$con->setAttribute(PDO::ATTR_EMULATE_PREPARES, 0);
 				self::$con->exec('set charset utf8');
 			}catch(PDOException $e){
 				echo $e->getMessage();
