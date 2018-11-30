@@ -1,5 +1,5 @@
 <?php 
-require('Modelo/Conexion.inc.php');
+require('modelos/Conexion.inc.php');
 Conexion::openConnection();
 
 if (Conexion::getConnection() != null) {

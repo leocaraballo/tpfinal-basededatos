@@ -16,7 +16,7 @@ class Conexion{
 		# code...
 		if (self::$con == null) {
 			# code...
-			require('confing.inc.php');
+			require('config.inc.php');
 			try{
 				$dsn = 'mysql:host=' . HOST . ';dbname=' . DBNAME;
 				self::$con = new PDO($dsn,USER,PASSWORD);
