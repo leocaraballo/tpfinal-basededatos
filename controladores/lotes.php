@@ -1,4 +1,5 @@
 <?php
+  require($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/controladores/mostrar.php');
   if (isset($_REQUEST["agregar"])) {
     $data = [
       ":Producto_Codigo_FK" => $_REQUEST["producto"],
@@ -8,8 +9,8 @@
       ":Cantidad" => $_REQUEST["cantidad"],
     ];
     Lote::crear($data);
+    mostrar($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/vistas/lotes_exito.php');
   } else {
-    require($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/controladores/mostrar.php');
     require($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/modelos/Producto.php');
     mostrar($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/vistas/lotes.php');
   }
