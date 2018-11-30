@@ -42,15 +42,6 @@
                             VALUES
                             ($DNI, $Matricula, '$Nombre', '$Apellido', $Telefono, '$Direccion');");
 
-            $Datos = [
-                "DNI" => $DNI,
-                "Matricula" => $Matricula,
-                "Nombre" => $Nombre,
-                "Apellido" => $Apellido,
-                "Telefono" => $Telefono,
-                "Direccion" => $Direccion
-            ];
-
             if($Conexion->query($Operacion)){
                 $this->DNI = $DNI;
                 $this->Matricula = $Matricula;
