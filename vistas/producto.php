@@ -2,6 +2,17 @@
 <html lang="en">
 <title>SuperCaro</title>
 
+
+<?php require('templates/header.php');
+ require('../modelos/Producto.php');
+ require('../modelos/MarcoRegulatorio.php');
+ ?>
+<body>
+
+
+<br/><br/><br/><br/>
+<h1>Productos</h1>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -18,13 +29,18 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 
 
 
-								<button class="w3-button  w3-green " type="submit">Listar Productos</button>
-								<button class="w3-button  w3-green " type="submit">Agregar</button>
-								<button class="w3-button  w3-green "  >Modificar</button>
+
+							
+								
+								
 
 
-<form class="w3-container" action="/supercaro">
-	<h1>Productos</h1>
+			<form class="w3-container" action="post">
+
+	
+
+	
+
 						<div class="w3-section">
 								<label><b>Codigo</b></label>
 								<input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Ingrese Codigo de producto" name="Codigo" required>
@@ -50,11 +66,29 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 									<label><b>Marca</b></label>
 								<input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Ingrese la Marca" name="Marca" required>
 								<button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Agregar</button>
+								<button class="w3-button w3-block w3-green w3-section w3-padding "  >Modificar</button>
 						</div>
 				</form>
 
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
 
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
 
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+<body>
 
 
 
