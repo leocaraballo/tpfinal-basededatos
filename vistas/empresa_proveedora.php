@@ -1,7 +1,4 @@
 <?php
-include_once './templates/header.php';
-require '../modelos/EmpresaProveedora.php';
-require '../modelos/Conexion.inc.php';
 Conexion::openConnection();
 
 $action = '';
@@ -23,8 +20,8 @@ if (isset($_GET['enviar'])) {
 }
 $empresas = EmpresaProveedora::retornarTodasEmpresa_Proveedora(Conexion::getConnection());
 ?>
-<main class="w3-container w3-center" style="padding:128px 16px;">
-    <table class="w3-table w3-striped">
+<main class="w3-container w3-center w3-centered w3-card-4" style="padding:128px 16px;">
+    <table class="w3-table w3-striped w3-table-all">
         <tr>
           <th>RNE</th>
           <th>CUIT</th>
@@ -32,6 +29,7 @@ $empresas = EmpresaProveedora::retornarTodasEmpresa_Proveedora(Conexion::getConn
           <th>Direccion</th>
           <th>Telefono</th>
           <th>Email</th>
+          <th></th>
         </tr>
         <?php
         foreach ($empresas as $value) {
