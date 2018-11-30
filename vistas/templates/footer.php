@@ -1,4 +1,4 @@
-<footer class="w3-container w3-teal w3-center w3-margin-top">
+<footer class="w3-container w3-teal w3-center">
   <p>Desarrollado por <a href="https://www.google.com" target="_blank">Leo, Leo, Leo y Emi</a></p>
 </footer>
 <script>
