@@ -53,6 +53,20 @@
       Conexion::closeConnection();
       return $ret;
     }
+
+    public static function crear($query) {
+     $sql = "INSERT INTO Verificacion(Numero, Ficha_control_Numero_FK, Tipo_Verificacion_Nombre_FK, Fecha, Hora, Resultado, Cumple)
+             VALUES ".$query;
+     $filas = 0;
+     require_once($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/modelos/Conexion.inc.php');
+     Conexion::openConnection();
+     $db = Conexion::getConnection();
+     if ($db != null) {
+       $fila = $db->exec($sql);
+       Conexion::closeConnection();
+     }
+     return $fila;
+    }
   }
 
 ?>

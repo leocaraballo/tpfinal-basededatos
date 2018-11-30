@@ -25,6 +25,6 @@
       </select>
     <?php endforeach;?>
 
-    <input class="w3-button w3-block w3-green w3-section w3-padding" type="submit" name="verif" value="Enviar">
+    <input class="w3-button w3-block w3-green w3-section w3-padding" type="submit" name="verif" value="Cargar">
   </form>
 </main>

@@ -24,8 +24,21 @@
     require_once($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/modelos/Verificacion.php');
     mostrar($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/vistas/verificaciones.php');
   } else if (isset($_REQUEST["verif"])) {
-    
+    require_once($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/controladores/mensaje.php');
+    $query = "";
+    for ($i = 0; $i < count($_REQUEST["Ficha_control_Numero_FK"]); $i++) {
+      $query = $query."(".$_REQUEST["Ficha_control_Numero_FK"][$i].",'".$_REQUEST["Tipo_Verificacion_Nombre_FK"][$i]."', ".
+                        $_REQUEST["Fecha"][$i].", ".$_REQUEST["Hora"][$i].", '".$_REQUEST["Resultado"][$i]."', ".
+                        $_REQUEST["Cumple"][$i]."),";
+    }
+    $query = substr($query, 0, -1);
+
+    require_once($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/modelos/Verificacion.php');
+    if (Verificacion::crear($query) != 0) {
+      mensaje("Verificaciones Correctamente añadidas.");
+    }
   } else {
+    require_once($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/modelos/Lote.php');
     mostrar($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/vistas/verificaciones_opciones.php');
   }
 ?>
