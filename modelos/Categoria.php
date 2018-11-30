@@ -38,7 +38,7 @@
             return $this;
         } 
 
-        function Crear($Nombre){
+         public static function Crear($Nombre){
             require_once($_SERVER['DOCUMENT_ROOT'].'/tpfinal/modelos/Conexion.inc.php');
             Conexion::openConnection();
 
