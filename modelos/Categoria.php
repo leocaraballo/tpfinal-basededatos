@@ -4,6 +4,23 @@
 
         function __construct() {}
 
+        public static function RetornarTodas(){
+            require_once('Conexion.inc.php');
+            Conexion::openConnection();
+
+            $Conexion = Conexion::getConnection();
+
+            $Operacion = ("SELECT * FROM categoria");
+
+            $Resultados = $Conexion->query($Operacion);
+            $retorno;
+            foreach($Resultados as $Item){
+                $retorno[] = $Item["Nombre"];
+            }
+
+            return $retorno;
+        }
+
         function Consultar($Nombre){
             require_once($_SERVER['DOCUMENT_ROOT'].'/tpfinal/modelos/Conexion.inc.php');
             Conexion::openConnection();
@@ -21,7 +38,7 @@
             return $this;
         } 
 
-        function Crear($Nombre){
+         public static function Crear($Nombre){
             require_once($_SERVER['DOCUMENT_ROOT'].'/tpfinal/modelos/Conexion.inc.php');
             Conexion::openConnection();
 
