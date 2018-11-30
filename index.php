@@ -137,15 +137,6 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 						<button class="w3-button w3-section w3-blue w3-ripple"> verificar </button>
 						</p>
 </div>
-
-
-
-
-
-
-
-
-
 <script>
 // Used to toggle the menu on small screens when clicking on the menu button
 function myFunction() {
@@ -157,9 +148,6 @@ function myFunction() {
 		}
 }
 
-   if(typeof window.history.pushState == 'function') {
-        window.history.pushState({}, "Hide", "http://localhost/supercaro");
-    }
 </script>
 
 </body>
