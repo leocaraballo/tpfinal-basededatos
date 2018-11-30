@@ -8,8 +8,8 @@
       Conexion::openConnection();
       $db = Conexion::getConnection();
       if ($db != null) {
-        $db->prepare($sql);
-        $db->execute($data);
+        $sentence = $db->prepare($sql);
+        $sentence->execute($data);
         Conexion::closeConnection();
       }
     }

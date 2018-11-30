@@ -94,6 +94,19 @@
                 return false;
             }
         }
-
+        
+        public static function getEmpresasProveedoras() {
+          require($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/modelos/Conexion.inc.php');
+          Conexion::openConnection();
+          $db = Conexion::getConnection();
+          $sql = "SELECT RNE, Nombre
+                  FROM Empresa_Proveedora";
+          $ret = null;
+          if ($db != null) {
+            $ret = $db->query($sql);
+          }
+          Conexion::closeConnection();
+          return $ret;
+        }
     }
 ?>

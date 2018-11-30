@@ -74,7 +74,7 @@
         <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red"
           href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
         <a href="/tpfinal-basededatos/" class="w3-bar-item w3-button w3-padding-large w3-white">Inicio</a>
-        <a href="/tpfinal-basededatos/" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Producto</a>
+        <a href="/tpfinal-basededatos/controladores/producto.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Producto</a>
         <a href="/tpfinal-basededatos/" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Inventario</a>
         <a href="/tpfinal-basededatos/controladores/lotes.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Lote</a>
         <a onclick="document.getElementById('id02').style.display='block'" href="/tpfinal-basededatos/" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Verificaciones</a>
@@ -84,7 +84,7 @@
       <!-- Navbar on small screens -->
       <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
         <a href="/tpfinal-basededatos/" class="w3-bar-item w3-button w3-padding-large w3-white">Inicio</a>
-        <a href="/tpfinal-basededatos/" class="w3-bar-item w3-button w3-padding-large">Producto</a>
+        <a href="/tpfinal-basededatos/controladores/producto.php" class="w3-bar-item w3-button w3-padding-large">Producto</a>
         <a href="/tpfinal-basededatos/controladores/lotes.php" class="w3-bar-item w3-button w3-padding-large">Lote</a>
         <a onclick="document.getElementById('id02').style.display='block'" href="/tpfinal-basdedatos/" class="w3-bar-item w3-button w3-padding-large">Verificaciones</a>
         <a href="/tpfinal-basededatos/controladores/empresa_proveedora.php" class="w3-bar-item w3-button w3-padding-large">Empresas Proveedoras</a>

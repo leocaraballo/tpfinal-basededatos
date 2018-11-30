@@ -12,37 +12,38 @@
 
       
 
-        function insertarProducto($Codigo, $Empresa_Proveedora_RNE_FK, $Marco_Regulatorio_Numero_FK, $RNPA, $Nombre, $Marca,$Descripcion){
-            require($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/modelos/Conexion.inc.php');
-            Conexion::openConnection();
+        public static function insertarProducto($Codigo, $Empresa_Proveedora_RNE_FK, $Marco_Regulatorio_Numero_FK, $RNPA, $Nombre, $Marca,$Descripcion){
+          require($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/modelos/Conexion.inc.php');
+          Conexion::openConnection();
+          $Conexion = Conexion::getConnection();
 
-            $Conexion = Conexion::getConnection();
 
+          $query = ("INSERT INTO producto
+                                  (`Codigo`,
+                                  `Empresa_Proveedora_RNE_FK`,
+                                  `Marco_Regulatorio_Numero_FK`,
+                                  `RNPA`,
+                                  `Nombre`,
+                                  `Marca`,
+                                  `Descripcion`)
+                    VALUES
+                          (:Codigo, :Empresa_Proveedora_RNE_FK, :Marco_Regulatorio_Numero_FK, :RNPA, :Nombre, :Marca, :Descripcion)");
 
-     $query = (" INSERT INTO producto
-                            (`Codigo`,
-                            `Empresa_Proveedora_RNE_FK`,
-                            `Marco_Regulatorio_Numero_FK`,
-                            `RNPA`,
-                            `Nombre`,
-                            `Marca`,
-                            `Descripcion`)
-                            VALUES
-                            ($Codigo, $Empresa_Proveedora_RNE_FK, $Marco_Regulatorio_Numero_FK, $RNPA, '$Nombre', '$Marca','$Descripcion');");
-      if($Conexion->query($query)){
-                $this->Codigo = $Codigo;
-                $this->Empresa_Proveedora_RNE_FK = $Empresa_Proveedora_RNE_FK;
-                $this->Marco_Regulatorio_Numero_FK = $Marco_Regulatorio_Numero_FK;
-                $this->Nombre = $Nombre;
-                $this->Marca = $Marca;
-                $this->Descripcion = $Descripcion;
-                //retorna este objeto
-                return $this;
-            }
-            else{
-                return null;
-            }
+          $data = [
+            ":Codigo" => $Codigo,
+            ":Empresa_Proveedora_RNE_FK" => $Empresa_Proveedora_RNE_FK,
+            ":Marco_Regulatorio_Numero_FK" => $Marco_Regulatorio_Numero_FK,
+            ":RNPA" => $RNPA,
+            ":Nombre" => $Nombre,
+            ":Marca" => $Marca,
+            ":Descripcion" => $Descripcion
+          ];
+
+          $statement = $Conexion->prepare($query);
+          $statement->execute($data);
+          Conexion::closeConnection();
         }
+
         function Modificar($Codigo, $Empresa_Proveedora_RNE_FK, $Marco_Regulatorio_Numero_FK, $RNPA, $Nombre, $Marca,$Descripcion){
             require($_SERVER['DOCUMENT_ROOT'].'/tpfinaltpfinal-basededatos/modelos/Conexion.inc.php');
             Conexion::openConnection();
@@ -77,17 +78,15 @@
       require($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/modelos/Conexion.inc.php');
       Conexion::openConnection();
       $db = Conexion::getConnection();
+      $ret = null;
       if ($db != null) {
         $sql = "SELECT Codigo, Nombre
                 FROM Producto";
-
-        return $db->query($sql);
+        $ret = $db->query($sql);
       }
       Conexion::closeConnection();
-      return null;
+      return $ret;
     }
 
     }
 ?>
-
-

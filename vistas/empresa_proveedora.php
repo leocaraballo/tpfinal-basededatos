@@ -1,6 +1,6 @@
 <main class="w3-container" style="padding:128px 16px;">
     <h1 class="white-l">Nuevo Proveedor</h1>
-    <form style="text-align:left;" action="empresa_proveedora.php">
+    <form style="text-align:left;" action="/tpfinal-basedededatos/controladores/empresa_proveedora.php">
           <div class="w3-section">
             <label class="white-l"><b>RNE</b></label>
             <input class="w3-input w3-border w3-margin-bottom" type="number" placeholder="Ingrese el RNE de la empresa" name="rne"
