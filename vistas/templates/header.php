@@ -69,6 +69,7 @@
         <a href="supercaro/Conozcanos/" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Inventario</a>
         <a href="supercaro/App" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Lote</a>
         <a onclick="document.getElementById('id02').style.display='block'" href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Verificaciones</a>
+        <a onclick="document.getElementById('id02').style.display='block'" href="" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Empresas Proveedoras</a>
       </div>
 
       <!-- Navbar on small screens -->
