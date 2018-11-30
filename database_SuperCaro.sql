@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS Producto(
     Empresa_Proveedora_RNE_FK int,
     Marco_Regulatorio_Numero_FK int,
     RNPA int,
-    Nombre int,
+    Nombre varchar(100),
     Marca varchar(100),
     Descripcion varchar(150),
     FOREIGN KEY (Empresa_Proveedora_RNE_FK) REFERENCES Empresa_Proveedora(RNE),
