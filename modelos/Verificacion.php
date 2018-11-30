@@ -34,6 +34,25 @@
       $statement->execute([":numero_ficha" => $numero_ficha]);
       return $statement->fetchAll();
     }
+
+    public static function getTipoVerificaciones($codigo_producto) {
+      require_once($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/modelos/Conexion.inc.php');
+      Conexion::openConnection();
+      $db = Conexion::getConnection();
+      $ret = null;
+      $sql = "SELECT TV.Nombre, TV.Tipo, MR.Numero
+              FROM Tipo_Verificacion TV JOIN Tiene T ON TV.Nombre = T.Tipo_Verificacion_Nombre_FK
+                                        JOIN Marco_Regulatorio MR ON MR.Numero = Marco_Regulatorio_Numero_FK
+              WHERE MR.Numero = (SELECT Marco_Regulatorio_Numero_FK
+                                 FROM Producto
+                                 WHERE Codigo = ".$codigo_producto.")";
+
+      if ($db != null) {
+        $ret = $db->query($sql);
+      }
+      Conexion::closeConnection();
+      return $ret;
+    }
   }
 
 ?>
