@@ -20,6 +20,7 @@ if (isset($_GET['enviar'])) {
 }
 $empresas = EmpresaProveedora::retornarTodasEmpresa_Proveedora(Conexion::getConnection());
 ?>
+<main style="padding:128px 16px;">
 <header class="w3-container w3-center w3-centered w3-card-4" style="padding:128px 16px;">
   <table class="w3-table w3-striped w3-table-all">
       <tr>
