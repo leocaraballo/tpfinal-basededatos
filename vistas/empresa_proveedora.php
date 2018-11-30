@@ -1,26 +1,92 @@
-<main class="w3-container" style="padding:128px 16px;">
-    <h1 class="white-l">Nuevo Proveedor</h1>
-    <form style="text-align:left;" action="/tpfinal-basedededatos/controladores/empresa_proveedora.php">
+<?php
+include_once './templates/header.php';
+require '../modelos/EmpresaProveedora.php';
+require '../modelos/Conexion.inc.php';
+Conexion::openConnection();
+
+$action = '';
+if (isset($_GET['enviar'])) {
+    
+    Conexion::openConnection();
+    if (isset($_GET['accion']) && $_GET['accion'] == 'M') {
+        EmpresaProveedora::modificarEmpresa_Proveedora(Conexion::getConnection(), 
+            $_GET['rne'], $_GET['cuit'], $_GET['nombre'], $_GET['direccion'], $_GET['telefono'], $_GET['email']);
+        $action = '';
+        $_GET['rne'] = null;
+        $_GET['accion'] = null;
+    }else{
+      EmpresaProveedora::insertarEmpresa_Proveedora(Conexion::getConnection(), 
+            $_GET['rne'], $_GET['cuit'], $_GET['nombre'], $_GET['direccion'], $_GET['telefono'], $_GET['email']); 
+      $_GET['rne'] = null;
+        $_GET['accion'] = null;
+    }
+}
+$empresas = EmpresaProveedora::retornarTodasEmpresa_Proveedora(Conexion::getConnection());
+?>
+<main class="w3-container w3-center" style="padding:128px 16px;">
+    <table class="w3-table w3-striped">
+        <tr>
+          <th>RNE</th>
+          <th>CUIT</th>
+          <th>Nombre</th>
+          <th>Direccion</th>
+          <th>Telefono</th>
+          <th>Email</th>
+        </tr>
+        <?php
+        foreach ($empresas as $value) {
+            echo    '<tr>'.
+                    '<td>'. $value->rne .'</td>' .
+                    '<td>'. $value->cuit .'</td>' .
+                    '<td>'. $value->nombre .'</td>' .
+                    '<td>'. $value->direccion .'</td>' .
+                    '<td>'. $value->telefono .'</td>' .
+                    '<td>'. $value->email .'</td>'.
+                    '<td><a href="empresa_proveedora.php?rne=' . $value->rne . '&accion=M">Modificar</a></td>'.
+                    '</tr>';
+        }
+        ?>
+    </table>
+    <br>
+    <br>
+    <form class="w3-container" style="text-align:left;" action="empresa_proveedora.php">
           <div class="w3-section">
-            <label class="white-l"><b>RNE</b></label>
-            <input class="w3-input w3-border w3-margin-bottom" type="number" placeholder="Ingrese el RNE de la empresa" name="rne"
-              required>
-            <label class="white-l"><b>CUIT</b></label>
+            <?php
+                    if (isset($_GET['rne']) && isset($_GET['accion'])) {
+                        $action = 'M';
+                        ?>
+              
+              <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Ingrese la accion" name="accion" style="display:none" value=<?php echo $action;?> >
+                <label><b>RNE</b></label>
+                <input class="w3-input w3-border w3-margin-bottom" type="number" placeholder="Ingrese el RNE de la empresa" name="rne"
+                       value=<?php echo $_GET['rne'];?>>
+                        <?php
+                    }else{
+                        ?>
+                <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Ingrese la accion" disabled name="accion" style="display:none" value=<?php echo $action;?>>
+                <label><b>RNE</b></label>
+                <input class="w3-input w3-border w3-margin-bottom" type="number" placeholder="Ingrese el RNE de la empresa" name="rne" value=""
+                  required>
+              <?php
+                    }
+            ?>
+            <label><b>CUIT</b></label>
             <input class="w3-input w3-border w3-margin-bottom" type="number" placeholder="Ingrese el CUIT sin guiones" name="cuit"
               required>
-            <label class="white-l"><b>Nombre</b></label>
+            <label><b>Nombre</b></label>
             <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Ingrese el nombre de la empresa" name="nombre"
               required>
-            <label class="white-l"><b>Direccion</b></label>
+            <label><b>Direccion</b></label>
             <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Ingrese la direccion de la empresa" name="direccion"
               required>
-            <label class="white-l"><b>Telefono</b></label>
+            <label><b>Telefono</b></label>
             <input class="w3-input w3-border w3-margin-bottom" type="number" placeholder="Ingrese el telefono de la empresa" name="telefono"
               required>
-            <label class="white-l"><b>Email</b></label>
+            <label><b>Email</b></label>
             <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Ingrese el email de la empresa" name="email"
               required>
-            <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit" name="enviar">Agregar Empresa</button>
+            <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit" name="enviar">Agregar/Modificar Empresa</button>
           </div>
   </form>
+    
 </main>
