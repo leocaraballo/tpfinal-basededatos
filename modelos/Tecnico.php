@@ -34,8 +34,8 @@
                 return $retorno;
             }
 
-        function Consultar($DNI){
-            require_once($_SERVER['DOCUMENT_ROOT'].'/tpfinal/modelos/Conexion.inc.php');
+        public static function Consultar($DNI){
+            require_once('Conexion.inc.php');
             Conexion::openConnection();
 
             $Conexion = Conexion::getConnection();
@@ -43,17 +43,23 @@
             $Operacion = ("SELECT * FROM tecnico WHERE DNI = $DNI");
 
             $Resultados = $Conexion->query($Operacion);
+            $result = $Resultados->fetch();
 
-            foreach($Resultados as $Item){
-                $this->DNI = $Item["Dni"];
-                $this->Matricula = $Item["Matricula"];
-                $this->Nombre = $Item["Nombre"];
-                $this->Apellido = $Item["Apellido"];
-                $this->Telefono = $Item["Telefono"];
-                $this->Direccion = $Item["Direccion"];
+            if ($result) {
+                # code...
+                $tecnico = new Tecnico();
+                $tecnico->DNI = $result["Dni"];
+                $tecnico->Matricula = $result["Matricula"];
+                $tecnico->Nombre = $result["Nombre"];
+                $tecnico->Apellido = $result["Apellido"];
+                $tecnico->Telefono = $result["Telefono"];
+                $tecnico->Direccion = $result["Direccion"];
+
+            return $tecnico;
+            }else{
+                return null;
             }
-
-            return $this;
+            
         } 
 
         public static function Crear($DNI, $Matricula, $Nombre, $Apellido, $Telefono, $Direccion){

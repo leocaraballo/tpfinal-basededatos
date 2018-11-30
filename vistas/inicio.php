@@ -15,14 +15,12 @@
           <img src="Logo.png" alt="Avatar" style="width:25%" class="w3-circle w3-margin-top">
         </div>
 
-        <form class="w3-container" action="/supercaro">
+        <form class="w3-container" method="post" action="/tpfinal-basededatos/index.php">
           <div class="w3-section">
-            <label><b>Usuario</b></label>
-            <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Ingrese su usuario" name="Usuario"
+            <label><b>DNI del Usuario</b></label>
+            <input class="w3-input w3-border w3-margin-bottom" type="number" placeholder="Ingrese su DNI" name="dni"
               required>
-            <label><b>Contraseña</b></label>
-            <input class="w3-input w3-border" type="password" placeholder="Ingrese su contraseña" name="Pass" required>
-            <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Iniciar sesion</button>
+            <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit" name="init">Iniciar sesion</button>
           </div>
         </form>
 
