@@ -69,23 +69,6 @@
             } 
         }        
     }
-
-        public static function insertarEmpresa_Proveedora($con, $rne, $cuit, $nombre, $direccion, $telefono, $email) {
-        if (EmpresaProveedora::retornarEmpresa_Proveedora($con, $rne) == null) {
-           if (isset($con)) {
-                $qry = 'INSERT INTO empresa_proveedora(`RNE`, `CUIT`, `Nombre`, `Direccion`, `Telefono`, `Email`) '
-                        . 'VALUES (:rne, :cuit, :nombre, :direccion, :telefono, :email)';
-                $statement = $con->prepare($qry);
-                $statement->bindParam(':rne',$rne, PDO::PARAM_INT);
-                $statement->bindParam(':cuit',$cuit, PDO::PARAM_INT);
-                $statement->bindParam(':nombre',$nombre, PDO::PARAM_STR);
-                $statement->bindParam(':direccion',$direccion, PDO::PARAM_STR);
-                $statement->bindParam(':telefono',$telefono, PDO::PARAM_LOB);
-                $statement->bindParam(':email',$email, PDO::PARAM_STR);
-                $statement->execute();
-            } 
-        }        
-    }
     
     public static function modificarEmpresa_Proveedora($con, $rne, $cuit, $nombre, $direccion, $telefono, $email) {
         if (isset($con)) {
@@ -118,7 +101,7 @@
         }
         
         public static function getEmpresasProveedoras() {
-          require($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/modelos/Conexion.inc.php');
+          require_once($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/modelos/Conexion.inc.php');
           Conexion::openConnection();
           $db = Conexion::getConnection();
           $sql = "SELECT RNE, Nombre

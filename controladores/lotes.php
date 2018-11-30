@@ -8,6 +8,7 @@
       ":Fecha_Vcto" => $_REQUEST["fecha_vcto"],
       ":Cantidad" => $_REQUEST["cantidad"],
     ];
+    require($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/modelos/Lote.php');
     Lote::crear($data);
     mostrar($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/vistas/lotes_exito.php');
   } else {
