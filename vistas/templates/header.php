@@ -44,6 +44,13 @@
     font-size: 200px
   }
 
+  header{
+    background-image: url("/tpfinal-basededatos/img/almacen.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
   main {
     background-image: url("/tpfinal-basededatos/img/almacen.jpg");
     background-repeat: no-repeat;
