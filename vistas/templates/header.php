@@ -75,7 +75,7 @@
           href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
         <a href="/tpfinal-basededatos/" class="w3-bar-item w3-button w3-padding-large w3-hover-white">Inicio</a>
         <a href="/tpfinal-basededatos/controladores/producto.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Producto</a>
-        <a href="/tpfinal-basededatos/" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Inventario</a>
+        <a href="/tpfinal-basededatos/controladores/inventario.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Inventario</a>
         <a href="/tpfinal-basededatos/controladores/lotes.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Lote</a>
         <a href="/tpfinal-basededatos/controladores/marco_regulatorio.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Marco Regulatorio</a>
         <a onclick="document.getElementById('id02').style.display='block'" href="/tpfinal-basededatos/" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Verificaciones</a>
