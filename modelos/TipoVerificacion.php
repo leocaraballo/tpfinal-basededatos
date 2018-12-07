@@ -23,28 +23,18 @@
             return $this;
         } 
 
-        function Crear($Nombre, $Tipo){
-            require($_SERVER['DOCUMENT_ROOT'].'/tpfinal/modelos/Conexion.inc.php');
-            Conexion::openConnection();
+        public static function crear(){
+          $sql = "INSERT INTO Tipo_Verificacion(Nombre, Tipo)
+                  VALUES (:Nombre, :Tipo)";
 
-            $Conexion = Conexion::getConnection();
-
-            $Operacion = (" INSERT INTO tipo_verificacion
-                            (`Nombre`,
-                            `Tipo`)
-                            VALUES
-                            ('$Nombre',
-                            '$Tipo');");
-
-            if($Conexion->query($Operacion)){
-                $this->Nombre = $Nombre;
-                $this->Tipo = $Tipo;
-
-                return $this;
-            }
-            else{
-                return null;
-            }
+          require_once($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/modelos/Conexion.inc.php');
+          Conexion::openConnection();
+          $db = Conexion::getConnection();
+          if ($db != null) {
+            $sentence = $db->prepare($sql);
+            $sentence->execute([":Nombre" => $_REQUEST["Nombre"], ":Tipo" => $_REQUEST["Tipo"]]);
+            Conexion::closeConnection();
+          }
         }
 
         function Modificar($Nombre, $NuevoNombre, $Tipo){

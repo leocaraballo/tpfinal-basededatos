@@ -13,7 +13,7 @@
   } else {
     require_once($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/modelos/TipoVerificacion.php');
     mostrar($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/vistas/tiene.php');
-    if (isset($_SESSION)) {
+    if (!isset($_SESSION)) {
       session_start();
     }
     $_SESSION["marco_regulatorio_numero"] = null;

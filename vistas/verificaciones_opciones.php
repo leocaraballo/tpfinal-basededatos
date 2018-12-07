@@ -15,4 +15,7 @@
   <a href="/tpfinal-basededatos/controladores/verificaciones.php?agregar=" class="w3-button w3-block w3-blue w3-section w3-padding">
     <strong class="white-l">Registrar Verificación</strong>
   </a>
+  <a href="/tpfinal-basededatos/controladores/tipo_verificaciones.php" class="w3-button w3-block w3-red w3-section w3-padding">
+    <strong class="white-l">Nuevo Tipo de Verificación</strong>
+  </a>
 </main>
