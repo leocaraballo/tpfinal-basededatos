@@ -5,13 +5,14 @@ Conexion::openConnection();
 $Conexion = Conexion::getConnection();
 
 $ID = $_REQUEST["ID"];
+$Producto = $_REQUEST["Producto"];
 
 $Operacion = (" DELETE FROM `supercaro`.`unidad_venta`
                 WHERE Codigo = $ID");
     
 $Resultados = $Conexion->query($Operacion);
 
-header("location:UnidadVenta.php");
+header("location:UnidadVenta.php?Producto=$Producto");
 
 
 

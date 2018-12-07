@@ -1,5 +1,6 @@
 <?php
-    $Elementos = UnidadVenta::ProductoINNERUnidadVenta();
+    $Producto = $_REQUEST["Producto"];
+    $Elementos = UnidadVenta::ProductoINNERUnidadVenta($Producto);
     
     if(isset($_POST["Confirmar"])){
         $Unidad = $_POST["Unidad"];
@@ -57,7 +58,7 @@
                         <td>$Marca</td>
                         <td>$Lote</td>
                         <td><a href='Informes/?ID=$Codigo' class='far fa-file-pdf' style='text-decoration:none' title='Ver informe'></a></td>
-                        <td><a href=BorrarUV.php?ID=$Codigo class='fa fa-trash' style='text-decoration:none' title='Borrar elemento'></td>
+                        <td><a href=BorrarUV.php?ID=$Codigo&Producto=$Producto class='fa fa-trash' style='text-decoration:none' title='Borrar elemento'></td>
                     </tr>";
       }
       ?>
@@ -91,11 +92,17 @@
             <input class="w3-input w3-border w3-margin-bottom" type="date" placeholder="Ingrese la fecha de retiro (Opcional)" name="Fecha">
             <label>Descripcion adicional</label>
             <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="" name="Descripcion">
+            <?php
+                echo "<input type=text hidden name='Producto' value='$Producto'>";         
+            ?>
             <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit" name="Confirmar">Confirmar</button>
 
             
         </form>
         <form method="get" action="UnidadVenta.php">
+            <?php
+                echo "<input type=text hidden name='Producto' value='$Producto'>";         
+            ?>
             <button href="UnidadVenta.php" class="w3-button w3-block w3-red w3-section w3-padding" type="submit" >Cancelar</button>
         </form>
 
@@ -107,7 +114,10 @@
         {
     ?>
     <form class="w3-container" method="get" style="text-align:left;" action="UnidadVenta.php">
-          <div class="w3-section">            
+          <div class="w3-section">   
+            <?php
+                echo "<input type=text hidden name='Producto' value='$Producto'>";         
+            ?>
             <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit" name="Agregar">Agregar nueva unidad</button>
             <button class="w3-button w3-block w3-orange w3-section w3-padding" type="submit" name="Modificar">Modificar unidades</button>
           </div>

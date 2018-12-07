@@ -4,7 +4,7 @@
 
         function __construct() {}
 
-        public static function ProductoINNERUnidadVenta(){
+        public static function ProductoINNERUnidadVenta($ID){
             require_once('Conexion.inc.php');
             Conexion::openConnection();
     
@@ -16,7 +16,8 @@
                             FROM
                             (unidad_venta INNER JOIN producto
                             ON
-                            unidad_venta.Producto_Codigo_FK = producto.Codigo);");
+                            unidad_venta.Producto_Codigo_FK = producto.Codigo)
+                            WHERE unidad_venta.Producto_Codigo_FK = $ID;");
     
             $Resultados = $Conexion->query($Operacion);
             /*$retorno;

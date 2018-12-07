@@ -4,12 +4,14 @@
       <tr>
         <th>Codigo</th>
         <th>Nombre</th>
+        <th>Unidades en venta</th>
       </tr>
       <?php
       foreach (Producto::getProductos() as $value) {
           echo    '<tr>'.
                   '<td>'. $value['Codigo'] .'</td>' .
-                  '<td>'. $value['Nombre'] .'</td>' ;
+                  '<td>'. $value['Nombre'] .'</td>' .
+                  '<td><a href="UnidadVenta.php?Producto='. $value['Codigo'] .'" style="text-decoration:none" >Ver unidades</a>';
       }
 
       ?>
