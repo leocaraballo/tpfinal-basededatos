@@ -6,21 +6,21 @@
     }
     $categorias = Categoria::RetornarTodas();
 ?>
-<header class="w3-container w3-center w3-centered w3-card-4" style="padding:128px 16px;">
+<main class="w3-container w3-center w3-centered w3-card-4" style="padding:128px 16px;">
   <table class="w3-table w3-striped w3-table-all">
       <tr>
         <th>Nombre</th>
-        <th></th>
+        
       </tr>
       <?php
       //Retorno de las categorias
       foreach ($categorias as $value) {
           # code...
-          echo '<tr><td>' . $value . '</td><td></td></tr>';
+          echo '<tr><td>' . $value . '</td></tr>';
       }
       ?>
   </table>
-</header>
+</main>
   <br>
     <br>
     <div class="w3-container w3-light-grey">
