@@ -109,10 +109,14 @@ if (!isset($_SESSION)) {
           <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
             <a href="/tpfinal-basededatos/" class="w3-bar-item w3-button w3-padding-large w3-white">Inicio</a>
             <a href="/tpfinal-basededatos/controladores/producto.php" class="w3-bar-item w3-button w3-padding-large">Producto</a>
+            <a href="/tpfinal-basededatos/controladores/inventario.php" class="w3-bar-item w3-button w3-padding-large">Inventario</a>
             <a href="/tpfinal-basededatos/controladores/lotes.php" class="w3-bar-item w3-button w3-padding-large">Lote</a>
             <a href="/tpfinal-basededatos/controladores/marco_regulatorio.php" class="w3-bar-item w3-button w3-padding-large">Marco Regulatorio</a>
             <a onclick="document.getElementById('id02').style.display='block'" href="/tpfinal-basededatos/controladores/verificaciones.php" class="w3-bar-item w3-button w3-padding-large">Verificaciones</a>
             <a href="/tpfinal-basededatos/controladores/empresa_proveedora.php" class="w3-bar-item w3-button w3-padding-large">Empresas Proveedoras</a>
+            <a href="/tpfinal-basededatos/controladores/categoria.php" class="w3-bar-item w3-button w3-padding-large">Categoria</a>
+            <a href="/tpfinal-basededatos/controladores/tecnico.php" class="w3-bar-item w3-button w3-padding-large">Tecnico</a>
+            <a href="/tpfinal-basededatos/controladores/logout.php" class="w3-bar-item w3-button w3-padding-large">Cerrar Sesion</a>
           </div>
         </div>
       </header>
