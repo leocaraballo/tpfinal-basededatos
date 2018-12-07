@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (!isset($_SESSION)) {
+  session_start();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -77,10 +79,10 @@ session_start();
     if (isset($_POST['init'])) {
       # code...
       $tecnico = Tecnico::Consultar($_POST['dni']);
-      $_SESSION['user'] = $tecnico;
+      $_SESSION["user"] = $tecnico;
     }
     
-    if($_SESSION['user'] != null){
+    if($_SESSION["user"] != null){
       
       ?>
       <header>
@@ -94,11 +96,11 @@ session_start();
             <a href="/tpfinal-basededatos/controladores/inventario.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Inventario</a>
             <a href="/tpfinal-basededatos/controladores/lotes.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Lote</a>
             <a href="/tpfinal-basededatos/controladores/marco_regulatorio.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Marco Regulatorio</a>
-            <a onclick="document.getElementById('id02').style.display='block'" href="/tpfinal-basededatos/" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Verificaciones</a>
+            <a onclick="document.getElementById('id02').style.display='block'" href="/tpfinal-basededatos/controladores/verificaciones.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Verificaciones</a>
             <a onclick="document.getElementById('id02').style.display='block'" href="/tpfinal-basededatos/controladores/empresa_proveedora.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Empresas Proveedoras</a>
             <a onclick="document.getElementById('id02').style.display='block'" href="/tpfinal-basededatos/controladores/categoria.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Categoria</a>
             <a onclick="document.getElementById('id02').style.display='block'" href="/tpfinal-basededatos/controladores/tecnico.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Tecnico</a>
-            
+             <a onclick="document.getElementById('id02').style.display='block'" href="/tpfinal-basededatos/controladores/logout.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-red">Cerrar Sesión</a>
           </div>
 
           <!-- Navbar on small screens -->
@@ -107,7 +109,7 @@ session_start();
             <a href="/tpfinal-basededatos/controladores/producto.php" class="w3-bar-item w3-button w3-padding-large">Producto</a>
             <a href="/tpfinal-basededatos/controladores/lotes.php" class="w3-bar-item w3-button w3-padding-large">Lote</a>
             <a href="/tpfinal-basededatos/controladores/marco_regulatorio.php" class="w3-bar-item w3-button w3-padding-large">Marco Regulatorio</a>
-            <a onclick="document.getElementById('id02').style.display='block'" href="/tpfinal-basdedatos/" class="w3-bar-item w3-button w3-padding-large">Verificaciones</a>
+            <a onclick="document.getElementById('id02').style.display='block'" href="/tpfinal-basededatos/controladores/verificaciones.php" class="w3-bar-item w3-button w3-padding-large">Verificaciones</a>
             <a href="/tpfinal-basededatos/controladores/empresa_proveedora.php" class="w3-bar-item w3-button w3-padding-large">Empresas Proveedoras</a>
           </div>
         </div>

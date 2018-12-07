@@ -40,22 +40,20 @@
 
             $Conexion = Conexion::getConnection();
 
-            $Operacion = ("SELECT * FROM tecnico WHERE DNI = $DNI");
+            $Operacion = ("SELECT Dni, Matricula, Nombre, Apellido, Telefono, Direccion
+                           FROM tecnico WHERE DNI = $DNI");
 
             $Resultados = $Conexion->query($Operacion);
             $result = $Resultados->fetch();
 
             if ($result) {
-                # code...
-                $tecnico = new Tecnico();
-                $tecnico->DNI = $result["Dni"];
-                $tecnico->Matricula = $result["Matricula"];
-                $tecnico->Nombre = $result["Nombre"];
-                $tecnico->Apellido = $result["Apellido"];
-                $tecnico->Telefono = $result["Telefono"];
-                $tecnico->Direccion = $result["Direccion"];
-
-            return $tecnico;
+                $tecnico["Dni"] = $result["Dni"];
+                $tecnico["Matricula"] = $result["Matricula"];
+                $tecnico["Nombre"] = $result["Nombre"];
+                $tecnico["Apellido"] = $result["Apellido"];
+                $tecnico["Telefono"] = $result["Telefono"];
+                $tecnico["Direccion"] = $result["Direccion"];
+               return $tecnico;
             }else{
                 return null;
             }

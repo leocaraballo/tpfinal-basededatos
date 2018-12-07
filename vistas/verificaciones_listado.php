@@ -1,7 +1,7 @@
 <main class="w3-container w3-light-grey" style="padding:128px 16px;">
   <table class="w3-table w3-striped w3-table-all">
     <?php 
-    if (($ultima_ficha = Verificacion::getUltimaFichaControl(5)) != false):?>
+    if (($ultima_ficha = Verificacion::getUltimaFichaControl($_REQUEST["Lote_Numero_FK"])) != false):?>
     <tr>
       <th>Ficha N°
         <?=$ultima_ficha["Numero"]?> |
