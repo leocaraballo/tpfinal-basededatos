@@ -37,12 +37,13 @@
 
         public static function crear($data) {
           $sql = "INSERT INTO Ficha_Control(Numero, Tecnico_Dni_FK, Lote_Numero_FK, Semana, Año, Estado_Lote, Observaciones_Generales)
-                  VALUES (:Numero, :Tecnico_Dni_FK, :Lote_Numero_FK, :Semana, :Año, :Estado_Lote, :Observaciones_Generales)";
+                  VALUES (:Numero, :Tecnico_Dni_FK, :Lote_Numero_FK, :Semana, :Ano, :Estado_Lote, :Observaciones_Generales)";
 
           require_once($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/modelos/Conexion.inc.php');
           Conexion::openConnection();
           $db = Conexion::getConnection();
           if ($db != null) {
+            print_r($sql);
             $sentence = $db->prepare($sql);
             $sentence->execute($data);
             Conexion::closeConnection();
