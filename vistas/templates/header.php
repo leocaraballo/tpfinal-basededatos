@@ -6,6 +6,7 @@ if (!isset($_SESSION)) {
 <!DOCTYPE html>
 <html lang="en">
 <title>SuperCaro</title>
+<link rel="icon" href="/tpfinal-basededatos/img/squeaky farms.png">
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
