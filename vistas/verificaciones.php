@@ -2,7 +2,6 @@
   <h1 class="white-l">Verificaciones</h1>
   <form action="/tpfinal-basededatos/controladores/verificaciones.php" method="post">
     <?php 
-      print_r($_SESSION["lote"]["Producto_Codigo_FK"]);
       foreach(Verificacion::getTipoVerificaciones($_SESSION["lote_producto"]) as $tv):?>
 
       <label class="white-l"><b>Nombre:</b></label>
