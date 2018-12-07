@@ -30,7 +30,6 @@ $empresas = EmpresaProveedora::retornarTodasEmpresa_Proveedora(Conexion::getConn
         <th>Direccion</th>
         <th>Telefono</th>
         <th>Email</th>
-        <th></th>
       </tr>
       <?php
       foreach ($empresas as $value) {
@@ -40,12 +39,13 @@ $empresas = EmpresaProveedora::retornarTodasEmpresa_Proveedora(Conexion::getConn
                   '<td>'. $value->nombre .'</td>' .
                   '<td>'. $value->direccion .'</td>' .
                   '<td>'. $value->telefono .'</td>' .
-                  '<td>'. $value->email .'</td>'.
+                  '<td>'. $value->email .'</td>';
+                  /*
                   '<td><a href="empresa_proveedora.php
                           ?rne=' . $value->rne . '&cuit=' . $value->cuit . '&nombre=' . $value->nombre . 
                           '&direccion=' . $value->direccion . '&telefono=' . $value->telefono . '&email=' . $value->email . 
                           '&accion=M">Modificar</a></td>'.
-                  '</tr>';
+                  '</tr>';*/
       }
       ?>
   </table>

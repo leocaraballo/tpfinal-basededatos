@@ -1,5 +1,6 @@
 <?php
   require_once($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/controladores/mostrar.php');
+  require_once($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/modelos/Lote.php');
   if (isset($_REQUEST["agregar"])) {
     $data = [
       ":Numero" => $_REQUEST["numero"],

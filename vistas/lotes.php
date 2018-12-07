@@ -1,4 +1,26 @@
 <main class="w3-container w3-light-grey" style="padding:128px 16px;">
+<header class="w3-container w3-center w3-centered w3-card-4" style="padding:128px 16px;">
+  <table class="w3-table w3-striped w3-table-all">
+      <tr>
+        <th>Numero de Lote</th>
+        <th>Nombre del producto</th>
+        <th>Marca del producto</th>
+        <th>Proveedor</th>
+        <th>Cantidad</th>
+      </tr>
+      <?php
+      foreach (Lote::getAllLotes() as $value) {
+          echo    '<tr>'.
+                  '<td>'. $value['Lote_Numero'] .'</td>' .
+                  '<td>'. $value['Producto_Nombre'] .'</td>' .
+                  '<td>'. $value['Producto_Marca'] .'</td>' .
+                  '<td>'. $value['Proveedor_Nombre'] .'</td>' .
+                  '<td>'. $value['Producto_Cantidad'] .'</td>' ;
+      }
+
+      ?>
+  </table>
+</header>
   <h1 class="white-l">Nuevo Lote</h1>
   <form action="/tpfinal-basededatos/controladores/lotes.php" method="POST">
     <div class="w3-section">
