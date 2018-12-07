@@ -1,14 +1,12 @@
 <main class="w3-container w3-light-grey" style="padding:128px 16px;">
   <table class="w3-table w3-striped w3-table-all">
     <?php 
-    if (($ultima_ficha = Verificacion::getUltimaFichaControl($_REQUEST["Lote_Numero_FK"])) != false):?>
+    if ($ultima_ficha = Verificacion::getUltimaFichaControl($_REQUEST["Lote_Numero_FK"])):?>
     <tr>
-      <th>Ficha N°
-        <?=$ultima_ficha["Numero"]?> |
-        <?=$ultima_ficha["Año"]?> | Semana
-        <?=$ultima_ficha["Semana"]?> | Estado Lote
-        <?=$ultima_ficha["Estado_Lote"]?>
-      </th>
+      <th>Ficha N° <?=$ultima_ficha["Numero"]?></th>
+      <th>Año <?=$ultima_ficha["Año"]?></th>
+      <th>Semana <?=$ultima_ficha["Semana"]?></th>
+      <th>Estado Lote <?=$ultima_ficha["Estado_Lote"]?></th>
       <th>
         <?=$ultima_ficha["Observaciones_Generales"]?>
       </th>

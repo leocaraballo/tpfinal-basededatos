@@ -11,26 +11,29 @@
     require_once($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/modelos/FichaControl.php');
     session_start();
 
-    print_r($_SESSION["user"]);
-
     $data = [
       ":Numero" => $_REQUEST["Numero"],
       ":Tecnico_Dni_FK" => $_SESSION["user"]["Dni"],
       ":Lote_Numero_FK" => $_REQUEST["Lote_Numero_FK"],
       ":Semana" => $_REQUEST["Semana"],
-      ":Año" => $_REQUEST["Año"],
+      ":Ano" => $_REQUEST["Año"],
       ":Estado_Lote" => $_REQUEST["Estado_Lote"],
       ":Observaciones_Generales" => $_REQUEST["Observaciones_Generales"]
     ];
     FichaControl::crear($data);
+
+    require_once($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/modelos/Lote.php');
+    $_SESSION["lote_producto"] = Lote::getLoteProducto($_REQUEST["Lote_Numero_FK"]);
+    $_SESSION["ficha_control"] = $_REQUEST["Numero"];
+
     require_once($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/modelos/Verificacion.php');
     mostrar($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/vistas/verificaciones.php');
   } else if (isset($_REQUEST["verif"])) {
     require_once($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/controladores/mensaje.php');
     $query = "";
     for ($i = 0; $i < count($_REQUEST["Ficha_control_Numero_FK"]); $i++) {
-      $query = $query."(".$_REQUEST["Ficha_control_Numero_FK"][$i].",'".$_REQUEST["Tipo_Verificacion_Nombre_FK"][$i]."', ".
-                        $_REQUEST["Fecha"][$i].", ".$_REQUEST["Hora"][$i].", '".$_REQUEST["Resultado"][$i]."', ".
+      $query = $query."(".$_REQUEST["Ficha_control_Numero_FK"][$i].",'".$_REQUEST["Tipo_Verificacion_Nombre_FK"][$i]."', '".
+                        $_REQUEST["Fecha"][$i]."', '".$_REQUEST["Hora"][$i]."', '".$_REQUEST["Resultado"][$i]."', ".
                         $_REQUEST["Cumple"][$i]."),";
     }
     $query = substr($query, 0, -1);

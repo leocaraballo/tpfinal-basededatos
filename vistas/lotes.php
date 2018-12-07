@@ -36,8 +36,8 @@
       </select>
       <label class="white-l" for="fecha_emision"><strong>Fecha de Emisión:</strong></label>
       <input class="w3-input w3-margin-bottom" type="date" name="fecha_emision" id="fecha_emision">
-      <label class="" for="fecha_entrada"><strong>Fecha de Entrada:</strong></label>
-      <input class="w3-input w3-margin-bottom" type="date" name="fecha_entrada" id="fecha_entrada" value="<?=date("Y-m-j")?>">
+      <label class="white-l" for="fecha_entrada"><strong>Fecha de Entrada:</strong></label>
+      <input class="w3-input w3-margin-bottom" type="date" name="fecha_entrada" id="fecha_entrada" value="<?=date("Y-m-d")?>">
       <label class="white-l" for="fecha_vcto"><strong>Fecha de Vencimiento:</strong></label>
       <input class="w3-input w3-margin-bottom" type="date" name="fecha_vcto" id="fecha_vcto">
       <label class="white-l" for="cantidad"><strong>Cantidad:</strong></label>
