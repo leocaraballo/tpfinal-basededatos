@@ -11,8 +11,8 @@
 
         <div class="w3-center"><br>
           <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-xlarge w3-transparent w3-display-topright"
-            title="Close Modal">×</span>
-          <img src="Logo.png" alt="Avatar" style="width:25%" class="w3-circle w3-margin-top">
+            title="Cerrar ventana">X</span>
+          <img src="/tpfinal-basededatos/img/squeaky farms.png" alt="Avatar" style="width:25%" class="w3-circle w3-margin-top">
         </div>
 
         <form class="w3-container" method="post" action="/tpfinal-basededatos/index.php">
@@ -26,7 +26,7 @@
 
         <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
           <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-button w3-red">Cancelar</button>
-          <span class="w3-right w3-padding w3-hide-small"> <a href="#">¿Olvido su contraseña?</a></span>
+          
         </div>
 
       </div>
