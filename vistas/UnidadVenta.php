@@ -40,6 +40,7 @@
         <th>Marca</th>
         <th>Nº de lote</th>
         <th>Mas informacion</th>
+        <th>Borrar</th>
     </tr>
 
     <?php
@@ -55,7 +56,8 @@
                         <td>$Nombre</td>
                         <td>$Marca</td>
                         <td>$Lote</td>
-                        <td><a href='Informes/?ID=$Codigo'>Informe</a></td>
+                        <td><a href='Informes/?ID=$Codigo' class='far fa-file-pdf' style='text-decoration:none' title='Ver informe'></a></td>
+                        <td><a href=BorrarUV.php?ID=$Codigo class='fa fa-trash' style='text-decoration:none' title='Borrar elemento'></td>
                     </tr>";
       }
       ?>
@@ -107,7 +109,6 @@
     <form class="w3-container" method="get" style="text-align:left;" action="UnidadVenta.php">
           <div class="w3-section">            
             <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit" name="Agregar">Agregar nueva unidad</button>
-            <button class="w3-button w3-block w3-red w3-section w3-padding" type="submit" name="Borrar">Borrar unidades</button>
             <button class="w3-button w3-block w3-orange w3-section w3-padding" type="submit" name="Modificar">Modificar unidades</button>
           </div>
   </form>
