@@ -62,7 +62,7 @@
             return $this;
         } 
 
-         public static function Crear($Unidad, $Codigo, $Lote, $Tipo, $Material, $Peso, $Volumen = null, $Fecha = null, $Descripcion = null){
+         public static function Crear($Unidad, $Producto, $Lote, $Tipo, $Material, $Peso, $Volumen = null, $Fecha = null, $Descripcion = null){
             require_once('Conexion.inc.php');
             Conexion::openConnection();
 
@@ -80,7 +80,7 @@
                                 `Descripcion_Extra`)
                                 VALUES
                                 (:Unidad,
-                                :Codigo,
+                                :Producto,
                                 :Lote,
                                 :Tipo,
                                 :Material,
@@ -91,7 +91,7 @@
 
             $Consulta = $Conexion->prepare($Operacion);
             $Consulta->bindParam(':Unidad',$Unidad, PDO::PARAM_INT);
-            $Consulta->bindParam(':Codigo',$Codigo, PDO::PARAM_INT);
+            $Consulta->bindParam(':Producto',$Producto, PDO::PARAM_INT);
             $Consulta->bindParam(':Lote',$Lote, PDO::PARAM_INT);
             $Consulta->bindParam(':Tipo',$Tipo, PDO::PARAM_STR);
             $Consulta->bindParam(':Material',$Material, PDO::PARAM_STR);

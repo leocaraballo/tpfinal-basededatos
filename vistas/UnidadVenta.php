@@ -1,10 +1,9 @@
 <?php
     $Producto = $_REQUEST["Producto"];
-    $Elementos = UnidadVenta::ProductoINNERUnidadVenta($Producto);
     
     if(isset($_POST["Confirmar"])){
         $Unidad = $_POST["Unidad"];
-        $Codigo = $_POST["Codigo"];
+        $Producto = $_POST["Producto"];
         $Lote = $_POST["Lote"];
         $Tipo = $_POST["Tipo"];
         $Material = $_POST["Material"];
@@ -23,11 +22,11 @@
             $Descripcion = $_POST["Descripcion"];
         }
 
-        UnidadVenta::Crear($Unidad, $Codigo, $Lote, $Tipo, $Material, $Peso, $Volumen, $Fecha, $Descripcion);
+        UnidadVenta::Crear($Unidad, $Producto, $Lote, $Tipo, $Material, $Peso, $Volumen, $Fecha, $Descripcion);
 
-        echo '  <script type="text/javascript">
+        /*echo '  <script type="text/javascript">
                 Actualizar();
-                </script>';
+                </script>';*/
     }
 ?>
 <main class="w3-container w3-center w3-centered w3-card-4" style="padding:128px 16px;">
@@ -45,6 +44,7 @@
     </tr>
 
     <?php
+        $Elementos = UnidadVenta::ProductoINNERUnidadVenta($Producto);
       //Retorno de las categorias
       foreach ($Elementos as $Item) {
           $Codigo = $Item["Codigo"];
@@ -57,7 +57,7 @@
                         <td>$Nombre</td>
                         <td>$Marca</td>
                         <td>$Lote</td>
-                        <td><a href='Informes/?ID=$Codigo' class='far fa-file-pdf' style='text-decoration:none' title='Ver informe'></a></td>
+                        <td><a href='Informes/?ID=$Codigo' class='far fa-file-pdf' style='text-decoration:none' target='_blank' rel='noopener noreferrer' title='Ver informe'></a></td>
                         <td><a href=BorrarUV.php?ID=$Codigo&Producto=$Producto class='fa fa-trash' style='text-decoration:none' title='Borrar elemento'></td>
                     </tr>";
       }
@@ -77,7 +77,9 @@
             <label>Código de la unidad</label>
             <input class="w3-input w3-border w3-margin-bottom" type="number" placeholder="Ingrese el codigo de la unidad" name="Unidad" autofocus required>
             <label>Código del producto</label>
-            <input class="w3-input w3-border w3-margin-bottom" type="number" placeholder="Ingrese el codigo de producto" name="Codigo" autofocus required>
+            <?php
+            echo '<input class="w3-input w3-border w3-margin-bottom" type="number" placeholder="Ingrese el codigo de producto" name="Producto" value='.$Producto.' readonly required>';
+            ?>
             <label>Nº del lote</label>
             <input class="w3-input w3-border w3-margin-bottom" type="number" placeholder="Ingrese el Nº del lote" name="Lote" required>
             <label>Tipo de envase</label>
