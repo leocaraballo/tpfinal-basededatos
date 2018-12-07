@@ -12,7 +12,10 @@
 
             $Operacion = (" SELECT 
                             unidad_venta.Codigo, unidad_venta.Lote_Numero_FK as Lote,
-                            producto.Nombre, producto.Marca
+                            producto.Nombre, producto.Marca, unidad_venta.Envase_Paquete as Envase,
+                            unidad_venta.Envase_Material as Tipo, unidad_venta.Peso,
+                            unidad_venta.Volumen, unidad_venta.Fecha_Retiro as Retiro,
+                            unidad_venta.Descripcion_Extra as Descripcion
                             FROM
                             (unidad_venta INNER JOIN producto
                             ON
@@ -61,6 +64,24 @@
 
             return $this;
         } 
+
+        function ModificarUnidad($Unidad, $Producto, $Lote, $Tipo, $Material, $Peso, $Volumen = null, $Fecha = null, $Descripcion = null){
+            require_once($_SERVER['DOCUMENT_ROOT'].'/tpfinal/modelos/Conexion.inc.php');
+            Conexion::openConnection();
+
+            $Conexion = Conexion::getConnection();
+
+            $Operacion = (" UPDATE categoria
+                            SET
+                            `Nombre` = '$NuevoNombre'
+                            WHERE 
+                            `Nombre` = '$Nombre';");
+
+            $Conexion->query($Operacion);
+
+            $this->Nombre = $NuevoNombre;
+            return $this;
+        }
 
          public static function Crear($Unidad, $Producto, $Lote, $Tipo, $Material, $Peso, $Volumen = null, $Fecha = null, $Descripcion = null){
             require_once('Conexion.inc.php');
