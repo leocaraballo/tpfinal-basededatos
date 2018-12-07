@@ -55,7 +55,7 @@
                         <td>$Nombre</td>
                         <td>$Marca</td>
                         <td>$Lote</td>
-                        <td><a href='Informes/'>Informe</a></td>
+                        <td><a href='Informes/?ID=$Codigo'>Informe</a></td>
                     </tr>";
       }
       ?>
