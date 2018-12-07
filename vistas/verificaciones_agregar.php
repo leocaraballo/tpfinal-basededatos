@@ -2,7 +2,7 @@
   <h1 class="white-l">Nueva Ficha</h1>
   <form action="/tpfinal-basededatos/controladores/verificaciones.php" method="post">
     <label for="Numero" class="white-l"><b>Numero Ficha:</b></label>
-    <input class="w3-input w3-border w3-margin-bottom" type="number" name="numero" id="numero" required>
+    <input class="w3-input w3-border w3-margin-bottom" type="number" name="Numero" id="Numero" required>
     <label for="Lote_Numero_FK" class="white-l"><b>Lote:</b></label>
     <select name="Lote_Numero_FK" id="Empresa_Proveedora_RNE_FK" class="w3-input w3-border w3-margin-bottom" required>
       <option value="" selected disabled>Seleccione un Lote</option>

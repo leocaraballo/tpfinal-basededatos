@@ -9,9 +9,13 @@
     mostrar($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/vistas/verificaciones_agregar.php');
   } else if (isset($_REQUEST["completo"])) {
     require_once($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/modelos/FichaControl.php');
+    session_start();
+
+    print_r($_SESSION["user"]);
+
     $data = [
       ":Numero" => $_REQUEST["Numero"],
-      ":Tecnico_Dni_FK" => $_SESSION["user"]->DNI,
+      ":Tecnico_Dni_FK" => $_SESSION["user"]["Dni"],
       ":Lote_Numero_FK" => $_REQUEST["Lote_Numero_FK"],
       ":Semana" => $_REQUEST["Semana"],
       ":Año" => $_REQUEST["Año"],
