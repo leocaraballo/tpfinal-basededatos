@@ -1,6 +1,8 @@
 <main class="w3-container w3-center" style="padding:128px 16px;">
 
-  <h1 class="w3-margin w3-jumbo titulo-grande"><strong>SUPERCARO</strong></h1>
+  <h1 class="w3-margin w3-jumbo titulo-grande">
+  <span class="w3-center w3-padding-large w3-jumbo w3-wide w3-animate-opacity titulo-grande "><strong style="font-size:115px;" class=" w3-text-red">SUPERCARO</strong></span>
+  </h1>
   <!-- <p class="w3-xlarge">Template by w3.css</p> -->
     <?php if (isset($_SESSION["user"]) == null){?>
   <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Iniciar
