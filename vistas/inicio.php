@@ -2,8 +2,10 @@
 
   <h1 class="w3-margin w3-jumbo titulo-grande"><strong>SUPERCARO</strong></h1>
   <!-- <p class="w3-xlarge">Template by w3.css</p> -->
+    <?php if (isset($_SESSION["user"]) == null){?>
   <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Iniciar
     sesion</button>
+    <?php }?>
   <div class="w3-container">
 
     <div id="id01" class="w3-modal">
