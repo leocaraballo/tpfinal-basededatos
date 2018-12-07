@@ -9,7 +9,9 @@
     mostrar($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/vistas/verificaciones_agregar.php');
   } else if (isset($_REQUEST["completo"])) {
     require_once($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/modelos/FichaControl.php');
-    session_start();
+    if (!isset($_SESSION)) {
+      session_start();
+    }
 
     $data = [
       ":Numero" => $_REQUEST["Numero"],
