@@ -10,6 +10,24 @@
 
         function __construct() {}
 
+        public static function insertarCategoria($codigo, $categoria){
+          require_once($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/modelos/Conexion.inc.php');
+          Conexion::openConnection();
+          $Conexion = Conexion::getConnection();
+
+          $query = "INSERT INTO pertenece_a(`Categoria_Nombre_FK`, `Producto_Codigo_FK`)
+                    VALUES(:nombre_categoria, :codigo_producto)";
+          $data = [
+            ":nombre_categoria" => $categoria,
+            ":codigo_producto" => $codigo
+          ];
+
+          $statement = $Conexion->prepare($query);
+          $statement->execute($data);
+          Conexion::closeConnection();
+
+        }
+
       
 
         public static function insertarProducto($Codigo, $Empresa_Proveedora_RNE_FK, $Marco_Regulatorio_Numero_FK, $RNPA, $Nombre, $Marca,$Descripcion){
