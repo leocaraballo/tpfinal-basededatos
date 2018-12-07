@@ -3,7 +3,7 @@
     <select name="Lote_Numero_FK" id="Empresa_Proveedora_RNE_FK" class="w3-input w3-border w3-margin-bottom" required>
       <option value="" selected disabled>Seleccione un Lote</option>
       <?php foreach (Lote::getAllLotes() as $lote): ?>
-      <option value="<?=$lote[" Lote_Numero"]?>">
+      <option value="<?=$lote["Lote_Numero"]?>">
         <?="Lote ".$lote["Lote_Numero"]." - ".$lote["Producto_Nombre"]."(".$lote["Producto_Marca"].")"?>
       </option>
       <?php endforeach; ?>

@@ -43,7 +43,6 @@
           Conexion::openConnection();
           $db = Conexion::getConnection();
           if ($db != null) {
-            print_r($sql);
             $sentence = $db->prepare($sql);
             $sentence->execute($data);
             Conexion::closeConnection();

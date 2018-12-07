@@ -7,7 +7,7 @@
       $sql = "SELECT Numero, Año, Semana, Estado_Lote, Observaciones_Generales
               FROM Ficha_Control
               WHERE Lote_Numero_FK = :numero_lote
-              ORDER BY Numero DESC
+              ORDER BY Año DESC, Semana DESC
               LIMIT 1";
 
       $statement = $db->prepare($sql);
@@ -55,8 +55,9 @@
     }
 
     public static function crear($query) {
-     $sql = "INSERT INTO Verificacion(Numero, Ficha_control_Numero_FK, Tipo_Verificacion_Nombre_FK, Fecha, Hora, Resultado, Cumple)
+     $sql = "INSERT INTO Verificacion(Ficha_control_Numero_FK, Tipo_Verificacion_Nombre_FK, Fecha, Hora, Resultado, Cumple)
              VALUES ".$query;
+     print_r($sql);
      $filas = 0;
      require_once($_SERVER['DOCUMENT_ROOT'].'/tpfinal-basededatos/modelos/Conexion.inc.php');
      Conexion::openConnection();

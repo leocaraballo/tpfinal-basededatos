@@ -1,7 +1,9 @@
 <main class="w3-container" style="padding:128px 16px;">
   <h1 class="white-l">Verificaciones</h1>
   <form action="/tpfinal-basededatos/controladores/verificaciones.php" method="post">
-    <?php foreach(Verificacion::getTipoVerificaciones($_SESSION["lote"]["codigo_producto"]) as $tv):?>
+    <?php 
+      print_r($_SESSION["lote"]["Producto_Codigo_FK"]);
+      foreach(Verificacion::getTipoVerificaciones($_SESSION["lote_producto"]) as $tv):?>
 
       <label class="white-l"><b>Nombre:</b></label>
       <input class="w3-input w3-border w3-margin-bottom" type="text" value="<?=$tv["Nombre"]?>" readonly>
@@ -10,16 +12,16 @@
       <label class="white-l"><b>Numero MR:</b></label>
       <input class="w3-input w3-border w3-margin-bottom" type="number" value="<?=$tv["Numero"]?>" readonly>
 
-      <input type="hidden" name="Ficha_control_Numero_FK[]" value="">
+      <input type="hidden" name="Ficha_control_Numero_FK[]" value="<?=$_SESSION["ficha_control"]?>">
       <input type="hidden" name="Tipo_Verificacion_Nombre_FK[]" value="<?=$tv["Nombre"]?>">
       <label class="white-l"><b>Fecha:</b></label>
-      <input class="w3-input w3-border w3-margin-bottom" type="date" name="Fecha[]" required>
+      <input class="w3-input w3-border w3-margin-bottom" type="date" name="Fecha[]" value="<?=date("Y-m-d");?>" required>
       <label class="white-l"><b>Hora:</b></label>
-      <input class="w3-input w3-border w3-margin-bottom" type="time" name="Hora[]" required>
+      <input class="w3-input w3-border w3-margin-bottom" type="time" name="Hora[]" value="<?=date("H:i");?>" required>
       <label class="white-l"><b>Resultado:</b></label>
       <input class="w3-input w3-border w3-margin-bottom" type="text" name="Resultado[]" required>
       <label class="white-l"><b>Cumple:</b></label>
-      <select class="w3-input w3-border w3-margin-bottom" name="Cumple[]" required>
+      <select style="margin-bottom: 140px" class="w3-input w3-border" name="Cumple[]" required>
         <option value="1" selected>Si</option>
         <option value="0">No</option>
       </select>
